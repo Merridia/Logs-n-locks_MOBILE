@@ -1,0 +1,10 @@
+<ion-view view-title="locklist">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/lockslist/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+       <button class="button button-clear" ng-click="closeLogin()">Done</button>
+    </ion-list>
+  </ion-content>
+</ion-view>
