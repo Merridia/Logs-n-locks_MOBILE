@@ -1,0 +1,412 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of C:\Users\Jennifer\AppData\Roaming\npm\package.json
+5 verbose readDependencies loading dependencies from C:\Users\Jennifer\AppData\Roaming\npm\package.json
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: 'C:\\Users\\Jennifer\\Documents\\GitHub\\Projet-Lognlock\\Logs-n-locks_MOBILE',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package.tgz not in flight; packing
+10 verbose tar pack [ 'C:\\Users\\Jennifer\\AppData\\Roaming\\npm-cache\\todo\\1.0.0\\package.tgz',
+10 verbose tar pack   'C:\\Users\\Jennifer\\Documents\\GitHub\\Projet-Lognlock\\Logs-n-locks_MOBILE' ]
+11 verbose tarball C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package.tgz
+12 verbose folder C:\Users\Jennifer\Documents\GitHub\Projet-Lognlock\Logs-n-locks_MOBILE
+13 info prepublish todo@1.0.0
+14 verbose addLocalTarball adding from inside cache C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package.tgz
+15 silly cache afterAdd todo@1.0.0
+16 verbose afterAdd C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package\package.json not in flight; writing
+17 verbose afterAdd C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package\package.json written
+18 silly install resolved [ { name: 'todo',
+18 silly install resolved     version: '1.0.0',
+18 silly install resolved     description: 'todo: An Ionic project',
+18 silly install resolved     dependencies:
+18 silly install resolved      { gulp: '^3.5.6',
+18 silly install resolved        'gulp-sass': '^2.0.4',
+18 silly install resolved        'gulp-concat': '^2.2.0',
+18 silly install resolved        'gulp-minify-css': '^0.3.0',
+18 silly install resolved        'gulp-rename': '^1.2.0' },
+18 silly install resolved     devDependencies: { bower: '^1.3.3', 'gulp-util': '^2.2.14', shelljs: '^0.3.0' },
+18 silly install resolved     cordovaPlugins:
+18 silly install resolved      [ 'cordova-plugin-device',
+18 silly install resolved        'cordova-plugin-console',
+18 silly install resolved        'cordova-plugin-whitelist',
+18 silly install resolved        'cordova-plugin-splashscreen',
+18 silly install resolved        'cordova-plugin-statusbar',
+18 silly install resolved        'ionic-plugin-keyboard' ],
+18 silly install resolved     cordovaPlatforms: [],
+18 silly install resolved     readme: 'ERROR: No README data found!',
+18 silly install resolved     _id: 'todo@1.0.0',
+18 silly install resolved     scripts: {},
+18 silly install resolved     _shasum: '01e736e37c80bd4f6dcb3d12dc4778daabaefaa1',
+18 silly install resolved     _from: '..\\..\\..\\Documents\\GitHub\\Projet-Lognlock\\Logs-n-locks_MOBILE',
+18 silly install resolved     _resolved: 'file:..\\..\\..\\Documents\\GitHub\\Projet-Lognlock\\Logs-n-locks_MOBILE' } ]
+19 info install todo@1.0.0 into C:\Users\Jennifer\AppData\Roaming\npm
+20 info installOne todo@1.0.0
+21 verbose installOne of todo to C:\Users\Jennifer\AppData\Roaming\npm not in flight; installing
+22 verbose lock using C:\Users\Jennifer\AppData\Roaming\npm-cache\_locks\todo-2ff2163fd1de2e7b.lock for C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+23 silly install write writing todo 1.0.0 to C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+24 verbose unbuild node_modules\todo
+25 silly gentlyRm C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo is being purged from base C:\Users\Jennifer\AppData\Roaming\npm
+26 verbose gentlyRm don't care about contents; nuking C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+27 verbose tar unpack C:\Users\Jennifer\AppData\Roaming\npm-cache\todo\1.0.0\package.tgz
+28 verbose tar unpacking to C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+29 silly gentlyRm C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo is being purged
+30 verbose gentlyRm don't care about contents; nuking C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+31 silly gunzTarPerm modes [ '777', '666' ]
+32 silly gunzTarPerm extractEntry package.json
+33 silly gunzTarPerm extractEntry .npmignore
+34 silly gunzTarPerm extractEntry gulpfile.js
+35 silly gunzTarPerm extractEntry .vs/Logs-n-locks_MOBILE/v14/.suo
+36 silly gunzTarPerm extractEntry .vs/config/applicationhost.config
+37 silly gunzTarPerm extractEntry Logs-n-locks_MOBILE.jsproj
+38 silly gunzTarPerm extractEntry Logs-n-locks_MOBILE.sln
+39 silly gunzTarPerm extractEntry bower.json
+40 silly gunzTarPerm extractEntry config.xml
+41 silly gunzTarPerm extractEntry .editorconfig
+42 silly gunzTarPerm extractEntry hooks/README.md
+43 silly gunzTarPerm extractEntry hooks/after_prepare/010_add_platform_class.js
+44 silly gunzTarPerm extractEntry icones/Return.png
+45 silly gunzTarPerm extractEntry icones/Go.png
+46 silly gunzTarPerm extractEntry icones/Menu.png
+47 silly gunzTarPerm extractEntry icones/Profil.png
+48 silly gunzTarPerm extractEntry icones/Reload.png
+49 silly gunzTarPerm extractEntry icones/Reset.png
+50 silly gunzTarPerm extractEntry icones/Info.png
+51 silly gunzTarPerm extractEntry icones/View_eye.png
+52 silly gunzTarPerm extractEntry icones/View_video.png
+53 silly gunzTarPerm extractEntry icones/down.png
+54 silly gunzTarPerm extractEntry icones/settings.png
+55 silly gunzTarPerm extractEntry icones/singin.png
+56 silly gunzTarPerm extractEntry icones/up.png
+57 silly gunzTarPerm extractEntry ionic.project
+58 silly gunzTarPerm extractEntry taco.json
+59 silly gunzTarPerm extractEntry .bowerrc
+60 silly gunzTarPerm extractEntry scss/ionic.app.scss
+61 silly gunzTarPerm extractEntry www/css/style.css
+62 silly gunzTarPerm extractEntry www/img/ionic.png
+63 silly gunzTarPerm extractEntry www/index.html
+64 silly gunzTarPerm extractEntry www/js/app.js
+65 silly gunzTarPerm extractEntry www/lib/ionic/css/ionic.css
+66 silly gunzTarPerm extractEntry www/lib/ionic/css/ionic.min.css
+67 silly gunzTarPerm extractEntry www/lib/ionic/fonts/ionicons.eot
+68 silly gunzTarPerm extractEntry www/lib/ionic/fonts/ionicons.svg
+69 silly gunzTarPerm extractEntry www/lib/ionic/fonts/ionicons.ttf
+70 silly gunzTarPerm extractEntry www/lib/ionic/fonts/ionicons.woff
+71 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic-angular.js
+72 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic-angular.min.js
+73 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic.bundle.js
+74 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic.bundle.min.js
+75 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic.js
+76 silly gunzTarPerm extractEntry www/lib/ionic/js/ionic.min.js
+77 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-animate.js
+78 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-animate.min.js
+79 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-resource.js
+80 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-resource.min.js
+81 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-sanitize.js
+82 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular-sanitize.min.js
+83 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular.js
+84 silly gunzTarPerm extractEntry www/lib/ionic/js/angular/angular.min.js
+85 silly gunzTarPerm extractEntry www/lib/ionic/js/angular-ui/angular-ui-router.js
+86 silly gunzTarPerm extractEntry www/lib/ionic/js/angular-ui/angular-ui-router.min.js
+87 silly gunzTarPerm extractEntry www/lib/ionic/scss/_popup.scss
+88 silly gunzTarPerm extractEntry www/lib/ionic/scss/_action-sheet.scss
+89 silly gunzTarPerm extractEntry www/lib/ionic/scss/_backdrop.scss
+90 silly gunzTarPerm extractEntry www/lib/ionic/scss/_badge.scss
+91 silly gunzTarPerm extractEntry www/lib/ionic/scss/_bar.scss
+92 silly gunzTarPerm extractEntry www/lib/ionic/scss/_button-bar.scss
+93 silly gunzTarPerm extractEntry www/lib/ionic/scss/_button.scss
+94 silly gunzTarPerm extractEntry www/lib/ionic/scss/_checkbox.scss
+95 silly gunzTarPerm extractEntry www/lib/ionic/scss/_form.scss
+96 silly gunzTarPerm extractEntry www/lib/ionic/scss/_grid.scss
+97 silly gunzTarPerm extractEntry www/lib/ionic/scss/_items.scss
+98 silly gunzTarPerm extractEntry www/lib/ionic/scss/_list.scss
+99 silly gunzTarPerm extractEntry www/lib/ionic/scss/_loading.scss
+100 silly gunzTarPerm extractEntry www/lib/ionic/scss/_menu.scss
+101 silly gunzTarPerm extractEntry www/lib/ionic/scss/_mixins.scss
+102 silly gunzTarPerm extractEntry www/lib/ionic/scss/_modal.scss
+103 silly gunzTarPerm extractEntry www/lib/ionic/scss/_platform.scss
+104 silly gunzTarPerm extractEntry www/lib/ionic/scss/_popover.scss
+105 silly gunzTarPerm extractEntry www/lib/ionic/scss/_animations.scss
+106 silly gunzTarPerm extractEntry www/lib/ionic/scss/_progress.scss
+107 silly gunzTarPerm extractEntry www/lib/ionic/scss/_radio.scss
+108 silly gunzTarPerm extractEntry www/lib/ionic/scss/_range.scss
+109 silly gunzTarPerm extractEntry www/lib/ionic/scss/_refresher.scss
+110 silly gunzTarPerm extractEntry www/lib/ionic/scss/_reset.scss
+111 silly gunzTarPerm extractEntry www/lib/ionic/scss/_scaffolding.scss
+112 silly gunzTarPerm extractEntry www/lib/ionic/scss/_select.scss
+113 silly gunzTarPerm extractEntry www/lib/ionic/scss/_slide-box.scss
+114 silly gunzTarPerm extractEntry www/lib/ionic/scss/_spinner.scss
+115 silly gunzTarPerm extractEntry www/lib/ionic/scss/_tabs.scss
+116 silly gunzTarPerm extractEntry www/lib/ionic/scss/_toggle.scss
+117 silly gunzTarPerm extractEntry www/lib/ionic/scss/_transitions.scss
+118 silly gunzTarPerm extractEntry www/lib/ionic/scss/_type.scss
+119 silly gunzTarPerm extractEntry www/lib/ionic/scss/_util.scss
+120 silly gunzTarPerm extractEntry www/lib/ionic/scss/_variables.scss
+121 silly gunzTarPerm extractEntry www/lib/ionic/scss/ionic.scss
+122 silly gunzTarPerm extractEntry www/lib/ionic/scss/ionicons/_ionicons-font.scss
+123 silly gunzTarPerm extractEntry www/lib/ionic/scss/ionicons/_ionicons-icons.scss
+124 silly gunzTarPerm extractEntry www/lib/ionic/scss/ionicons/_ionicons-variables.scss
+125 silly gunzTarPerm extractEntry www/lib/ionic/scss/ionicons/ionicons.scss
+126 silly gunzTarPerm extractEntry www/lib/ionic/version.json
+127 verbose write writing to C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo\package.json
+128 info preinstall todo@1.0.0
+129 verbose readDependencies loading dependencies from C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo\package.json
+130 silly prepareForInstallMany adding gulp@^3.5.6 from todo dependencies
+131 silly prepareForInstallMany adding gulp-sass@^2.0.4 from todo dependencies
+132 silly prepareForInstallMany adding gulp-concat@^2.2.0 from todo dependencies
+133 silly prepareForInstallMany adding gulp-minify-css@^0.3.0 from todo dependencies
+134 silly prepareForInstallMany adding gulp-rename@^1.2.0 from todo dependencies
+135 verbose readDependencies loading dependencies from C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo\package.json
+136 silly cache add args [ 'gulp-concat@^2.2.0', null ]
+137 verbose cache add spec gulp-concat@^2.2.0
+138 silly cache add parsed spec Result {
+138 silly cache add   raw: 'gulp-concat@^2.2.0',
+138 silly cache add   scope: null,
+138 silly cache add   name: 'gulp-concat',
+138 silly cache add   rawSpec: '^2.2.0',
+138 silly cache add   spec: '>=2.2.0 <3.0.0',
+138 silly cache add   type: 'range' }
+139 silly addNamed gulp-concat@>=2.2.0 <3.0.0
+140 verbose addNamed ">=2.2.0 <3.0.0" is a valid semver range for gulp-concat
+141 silly addNameRange { name: 'gulp-concat', range: '>=2.2.0 <3.0.0', hasData: false }
+142 silly mapToRegistry name gulp-concat
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry uri https://registry.npmjs.org/gulp-concat
+146 verbose addNameRange registry:https://registry.npmjs.org/gulp-concat not in flight; fetching
+147 silly cache add args [ 'gulp-sass@^2.0.4', null ]
+148 verbose cache add spec gulp-sass@^2.0.4
+149 silly cache add parsed spec Result {
+149 silly cache add   raw: 'gulp-sass@^2.0.4',
+149 silly cache add   scope: null,
+149 silly cache add   name: 'gulp-sass',
+149 silly cache add   rawSpec: '^2.0.4',
+149 silly cache add   spec: '>=2.0.4 <3.0.0',
+149 silly cache add   type: 'range' }
+150 silly addNamed gulp-sass@>=2.0.4 <3.0.0
+151 verbose addNamed ">=2.0.4 <3.0.0" is a valid semver range for gulp-sass
+152 silly addNameRange { name: 'gulp-sass', range: '>=2.0.4 <3.0.0', hasData: false }
+153 silly mapToRegistry name gulp-sass
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/gulp-sass
+157 verbose addNameRange registry:https://registry.npmjs.org/gulp-sass not in flight; fetching
+158 silly cache add args [ 'gulp-minify-css@^0.3.0', null ]
+159 verbose cache add spec gulp-minify-css@^0.3.0
+160 silly cache add parsed spec Result {
+160 silly cache add   raw: 'gulp-minify-css@^0.3.0',
+160 silly cache add   scope: null,
+160 silly cache add   name: 'gulp-minify-css',
+160 silly cache add   rawSpec: '^0.3.0',
+160 silly cache add   spec: '>=0.3.0 <0.4.0',
+160 silly cache add   type: 'range' }
+161 silly addNamed gulp-minify-css@>=0.3.0 <0.4.0
+162 verbose addNamed ">=0.3.0 <0.4.0" is a valid semver range for gulp-minify-css
+163 silly addNameRange { name: 'gulp-minify-css',
+163 silly addNameRange   range: '>=0.3.0 <0.4.0',
+163 silly addNameRange   hasData: false }
+164 silly mapToRegistry name gulp-minify-css
+165 silly mapToRegistry using default registry
+166 silly mapToRegistry registry https://registry.npmjs.org/
+167 silly mapToRegistry uri https://registry.npmjs.org/gulp-minify-css
+168 verbose addNameRange registry:https://registry.npmjs.org/gulp-minify-css not in flight; fetching
+169 silly cache add args [ 'gulp-rename@^1.2.0', null ]
+170 verbose cache add spec gulp-rename@^1.2.0
+171 silly cache add parsed spec Result {
+171 silly cache add   raw: 'gulp-rename@^1.2.0',
+171 silly cache add   scope: null,
+171 silly cache add   name: 'gulp-rename',
+171 silly cache add   rawSpec: '^1.2.0',
+171 silly cache add   spec: '>=1.2.0 <2.0.0',
+171 silly cache add   type: 'range' }
+172 silly addNamed gulp-rename@>=1.2.0 <2.0.0
+173 verbose addNamed ">=1.2.0 <2.0.0" is a valid semver range for gulp-rename
+174 silly addNameRange { name: 'gulp-rename', range: '>=1.2.0 <2.0.0', hasData: false }
+175 silly mapToRegistry name gulp-rename
+176 silly mapToRegistry using default registry
+177 silly mapToRegistry registry https://registry.npmjs.org/
+178 silly mapToRegistry uri https://registry.npmjs.org/gulp-rename
+179 verbose addNameRange registry:https://registry.npmjs.org/gulp-rename not in flight; fetching
+180 silly cache add args [ 'gulp@^3.5.6', null ]
+181 verbose cache add spec gulp@^3.5.6
+182 silly cache add parsed spec Result {
+182 silly cache add   raw: 'gulp@^3.5.6',
+182 silly cache add   scope: null,
+182 silly cache add   name: 'gulp',
+182 silly cache add   rawSpec: '^3.5.6',
+182 silly cache add   spec: '>=3.5.6 <4.0.0',
+182 silly cache add   type: 'range' }
+183 silly addNamed gulp@>=3.5.6 <4.0.0
+184 verbose addNamed ">=3.5.6 <4.0.0" is a valid semver range for gulp
+185 silly addNameRange { name: 'gulp', range: '>=3.5.6 <4.0.0', hasData: false }
+186 silly mapToRegistry name gulp
+187 silly mapToRegistry using default registry
+188 silly mapToRegistry registry https://registry.npmjs.org/
+189 silly mapToRegistry uri https://registry.npmjs.org/gulp
+190 verbose addNameRange registry:https://registry.npmjs.org/gulp not in flight; fetching
+191 verbose request uri https://registry.npmjs.org/gulp-concat
+192 verbose request no auth needed
+193 info attempt registry request try #1 at 14:06:08
+194 verbose request id 5c92b1d8a3412807
+195 http request GET https://registry.npmjs.org/gulp-concat
+196 verbose request uri https://registry.npmjs.org/gulp-sass
+197 verbose request no auth needed
+198 info attempt registry request try #1 at 14:06:08
+199 http request GET https://registry.npmjs.org/gulp-sass
+200 verbose request uri https://registry.npmjs.org/gulp-minify-css
+201 verbose request no auth needed
+202 info attempt registry request try #1 at 14:06:08
+203 http request GET https://registry.npmjs.org/gulp-minify-css
+204 verbose request uri https://registry.npmjs.org/gulp-rename
+205 verbose request no auth needed
+206 info attempt registry request try #1 at 14:06:08
+207 http request GET https://registry.npmjs.org/gulp-rename
+208 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+209 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+210 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+211 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+212 verbose request uri https://registry.npmjs.org/gulp
+213 verbose request no auth needed
+214 info attempt registry request try #1 at 14:06:08
+215 verbose etag "C743U9HP8LXDLUAG240H3J5ES"
+216 http request GET https://registry.npmjs.org/gulp
+217 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+218 info attempt registry request try #2 at 14:06:18
+219 http request GET https://registry.npmjs.org/gulp-concat
+220 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+221 info attempt registry request try #2 at 14:06:18
+222 http request GET https://registry.npmjs.org/gulp-sass
+223 info attempt registry request try #2 at 14:06:18
+224 http request GET https://registry.npmjs.org/gulp-minify-css
+225 info attempt registry request try #2 at 14:06:18
+226 http request GET https://registry.npmjs.org/gulp-rename
+227 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+228 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+229 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+230 info attempt registry request try #2 at 14:06:18
+231 verbose etag "C743U9HP8LXDLUAG240H3J5ES"
+232 http request GET https://registry.npmjs.org/gulp
+233 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+234 info attempt registry request try #3 at 14:07:18
+235 http request GET https://registry.npmjs.org/gulp-concat
+236 info attempt registry request try #3 at 14:07:18
+237 http request GET https://registry.npmjs.org/gulp-sass
+238 info attempt registry request try #3 at 14:07:18
+239 http request GET https://registry.npmjs.org/gulp-minify-css
+240 info attempt registry request try #3 at 14:07:18
+241 http request GET https://registry.npmjs.org/gulp-rename
+242 info attempt registry request try #3 at 14:07:18
+243 verbose etag "C743U9HP8LXDLUAG240H3J5ES"
+244 http request GET https://registry.npmjs.org/gulp
+245 silly get cb [ 304, undefined ]
+246 verbose etag https://registry.npmjs.org/gulp from cache
+247 verbose get saving gulp to C:\Users\Jennifer\AppData\Roaming\npm-cache\registry.npmjs.org\gulp\.cache.json
+248 silly addNameRange number 2 { name: 'gulp', range: '>=3.5.6 <4.0.0', hasData: true }
+249 silly addNameRange versions [ 'gulp',
+249 silly addNameRange   [ '0.0.1',
+249 silly addNameRange     '0.0.2',
+249 silly addNameRange     '0.0.3',
+249 silly addNameRange     '0.0.4',
+249 silly addNameRange     '0.0.5',
+249 silly addNameRange     '0.0.7',
+249 silly addNameRange     '0.0.8',
+249 silly addNameRange     '0.0.9',
+249 silly addNameRange     '0.1.0',
+249 silly addNameRange     '0.2.0',
+249 silly addNameRange     '1.0.0',
+249 silly addNameRange     '1.1.0',
+249 silly addNameRange     '1.2.0',
+249 silly addNameRange     '1.2.1',
+249 silly addNameRange     '2.0.0',
+249 silly addNameRange     '2.0.1',
+249 silly addNameRange     '2.1.0',
+249 silly addNameRange     '2.2.0',
+249 silly addNameRange     '2.3.0',
+249 silly addNameRange     '2.4.0',
+249 silly addNameRange     '2.4.1',
+249 silly addNameRange     '2.6.0',
+249 silly addNameRange     '2.6.1',
+249 silly addNameRange     '2.7.0',
+249 silly addNameRange     '3.0.0',
+249 silly addNameRange     '3.1.1',
+249 silly addNameRange     '3.1.2',
+249 silly addNameRange     '3.1.3',
+249 silly addNameRange     '3.1.4',
+249 silly addNameRange     '3.2.0',
+249 silly addNameRange     '3.2.1',
+249 silly addNameRange     '3.2.2',
+249 silly addNameRange     '3.2.3',
+249 silly addNameRange     '3.2.4',
+249 silly addNameRange     '3.2.5',
+249 silly addNameRange     '3.3.0',
+249 silly addNameRange     '3.3.1',
+249 silly addNameRange     '3.3.2',
+249 silly addNameRange     '3.3.4',
+249 silly addNameRange     '3.4.0',
+249 silly addNameRange     '3.5.0',
+249 silly addNameRange     '3.5.1',
+249 silly addNameRange     '3.5.2',
+249 silly addNameRange     '3.5.5',
+249 silly addNameRange     '3.5.6',
+249 silly addNameRange     '3.6.0',
+249 silly addNameRange     '3.6.1',
+249 silly addNameRange     '3.6.2',
+249 silly addNameRange     '3.7.0',
+249 silly addNameRange     '3.8.0',
+249 silly addNameRange     '3.8.1',
+249 silly addNameRange     '3.8.2',
+249 silly addNameRange     '3.8.3',
+249 silly addNameRange     '3.8.4',
+249 silly addNameRange     '3.8.5',
+249 silly addNameRange     '3.8.6',
+249 silly addNameRange     '3.8.7',
+249 silly addNameRange     '3.8.8',
+249 silly addNameRange     '3.8.9',
+249 silly addNameRange     '3.8.10',
+249 silly addNameRange     '3.8.11',
+249 silly addNameRange     '3.9.0' ] ]
+250 silly addNamed gulp@3.9.0
+251 verbose addNamed "3.9.0" is a plain semver version for gulp
+252 silly cache afterAdd gulp@3.9.0
+253 verbose afterAdd C:\Users\Jennifer\AppData\Roaming\npm-cache\gulp\3.9.0\package\package.json not in flight; writing
+254 verbose afterAdd C:\Users\Jennifer\AppData\Roaming\npm-cache\gulp\3.9.0\package\package.json written
+255 verbose about to build C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+256 verbose unlock done using C:\Users\Jennifer\AppData\Roaming\npm-cache\_locks\todo-2ff2163fd1de2e7b.lock for C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+257 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+257 verbose stack     at errnoException (dns.js:26:10)
+257 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+258 verbose cwd C:\Users\Jennifer\Documents\GitHub\Projet-Lognlock\Logs-n-locks_MOBILE
+259 error Windows_NT 10.0.10240
+260 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g"
+261 error node v4.2.1
+262 error npm  v2.14.7
+263 error code ENOTFOUND
+264 error errno ENOTFOUND
+265 error syscall getaddrinfo
+266 error network getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+266 error network This is most likely not a problem with npm itself
+266 error network and is related to network connectivity.
+266 error network In most cases you are behind a proxy or have bad network settings.
+266 error network
+266 error network If you are behind a proxy, please make sure that the
+266 error network 'proxy' config is set properly.  See: 'npm help config'
+267 verbose exit [ 1, true ]
+268 verbose unbuild node_modules\todo
+269 info preuninstall todo@1.0.0
+270 info uninstall todo@1.0.0
+271 verbose unbuild rmStuff todo@1.0.0 from C:\Users\Jennifer\AppData\Roaming\npm\node_modules
+272 info postuninstall todo@1.0.0
+273 silly gentlyRm C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo is being purged from base C:\Users\Jennifer\AppData\Roaming\npm
+274 verbose gentlyRm don't care about contents; nuking C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+275 silly vacuum-fs purging C:\Users\Jennifer\AppData\Roaming\npm\node_modules\todo
+276 silly vacuum-fs quitting because other entries in C:\Users\Jennifer\AppData\Roaming\npm\node_modules
