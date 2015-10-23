@@ -68,6 +68,7 @@ angular.module('starter', ['ionic', /*'starter.controllers',*/ 'controller.Playl
       }
     }
   });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });
