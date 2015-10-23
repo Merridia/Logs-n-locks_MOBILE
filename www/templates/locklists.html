@@ -1,10 +1,14 @@
-<ion-view view-title="locklist">
+<ion-view view-title="Lock list">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="newLockList()">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/lockslist/{{playlist.id}}">
-        {{playlist.title}}
+      <ion-item ng-repeat="locklist in locklists" href="#/app/lockslists/{{locklist.id}}">
+        {{locklist.title}}
       </ion-item>
-       <button class="button button-clear" ng-click="closeLogin()">Done</button>
     </ion-list>
   </ion-content>
 </ion-view>
