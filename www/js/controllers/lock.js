@@ -6,7 +6,7 @@
     $scope.tasks = [];
 
     // Create and load the Modal
-    $ionicModal.fromTemplateUrl('new-task.html', function (modal) {
+    $ionicModal.fromTemplateUrl('new-lock.html', function (modal) {
         $scope.taskModal = modal;
     }, {
         scope: $scope,
