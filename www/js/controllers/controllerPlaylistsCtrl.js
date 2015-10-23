@@ -5,7 +5,7 @@ angular.module('controller.PlaylistsCtrl', [])
     $scope.playlists = PlaylistsServ.getPlaylist();
 
     // Create and load the Modal
-    $ionicModal.fromTemplateUrl('templates/new_lock.html', function (modal) {
+    $ionicModal.fromTemplateUrl('templates/new_lock_list.html', function (modal) {
         $scope.taskModal = modal;
     }, {
         scope: $scope,
@@ -13,12 +13,12 @@ angular.module('controller.PlaylistsCtrl', [])
     });
 
     // Called when the form is submitted
-    $scope.createLockList = function (task) {
-        $scope.tasks.push({
-            title: task.title
+    $scope.createLockList = function (lock) {
+        $scope.playlists.push({
+            title: lock.title
    });
         $scope.taskModal.hide();
-        task.title = "";
+        lock.title = "";
     };
 
     // Open our new task modal
