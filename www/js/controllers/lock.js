@@ -1,13 +1,5 @@
 ﻿angular.module('App.controllers.lock', [])
     // Controlleur d'une SERRURE ici
-.controller('LockCtrl', function ($scope) {
-    $scope.tasks = [
-      { title: 'Collect coins' },
-      { title: 'Eat mushrooms' },
-      { title: 'Get high enough to grab the flag' },
-      { title: 'Find the Princess' }
-    ];
-})
 
 .controller('LockCtrl', function ($scope, $ionicModal) {
     // No need for testing data anymore
@@ -39,8 +31,5 @@
     $scope.closeNewTask = function () {
         $scope.taskModal.hide();
     };
-
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
 });
 
