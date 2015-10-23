@@ -3,11 +3,15 @@
     <button class="button button-icon" ng-click="newLockList()">
       <i class="icon ion-compose"></i>
     </button>
+    <button class="button button-icon" ng-click="data.showReorder = !data.showReorder;">
+      <i class="icon ion-minus-circled"></i>
+    </button>
   </ion-nav-buttons>
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="locklist in locklists" href="#/app/lockslists/{{locklist.id}}">
-        {{locklist.title}}
+    <ion-list show-reorder="data.showReorder">
+      <ion-item ng-repeat="lock in locklists" href="#/app/lockslists/{{lock.id}}">
+        {{lock.title}}
+        <ion-reorder-button class="ion-minus-round" ng-click="deleteLock(lock)"></ion-reorder-button>
       </ion-item>
     </ion-list>
   </ion-content>
