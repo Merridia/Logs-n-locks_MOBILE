@@ -40,7 +40,7 @@ angular.module('controller.AppCtrl', [])
         }, 1000);
     };
     // Create our modal
-    $ionicModal.fromTemplateUrl('new-lock.html', function (modal) {
+    $ionicModal.fromTemplateUrl('templates/new_lock_list.html', function (modal) {
         $scope.taskModal = modal;
     }, {
         scope: $scope
