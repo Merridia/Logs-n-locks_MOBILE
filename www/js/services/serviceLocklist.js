@@ -14,12 +14,17 @@ angular.module('service.Locklist', [])
     this.getLock = function (lockid) {
         return locklists[lockid];
     }
+    
     this.toggleLock = function (lockid){
         locklists[lockid].isOpen = !locklists[lockid].isOpen;
-
     }
+    
     this.getIsLock = function (lockid) {
         return locklists[lockid].isOpen;
+    }
+
+    this.addnewlock = function (lock_title) {
+        locklists[locklists.length] = {title: lock_title, id: locklists.length, isOpen: false};
     }
 });
 

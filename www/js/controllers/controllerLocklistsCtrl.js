@@ -22,9 +22,7 @@ angular.module('controller.LocklistsCtrl', [])
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
-        $scope.locklists.push({
-            title: lock.title
-    });
+        LocklistsServ.addnewlock(lock.title);
         $scope.taskModal.hide();
         lock.title = "";
     };
