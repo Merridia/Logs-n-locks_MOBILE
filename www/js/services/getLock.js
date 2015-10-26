@@ -1,4 +1,4 @@
-﻿angular.module('Starter.Service.getLock', [])
+﻿/*angular.module('Starter.Service.getLock', [])
 // gestion d'une SERRURE ici
 .service('Lock_serv', function($scope) {
     var tasks = [
@@ -11,4 +11,4 @@
     this.getTask = function() {
     	return tasks;
     }
-})
+})*/
