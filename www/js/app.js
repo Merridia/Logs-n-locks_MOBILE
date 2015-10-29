@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'controller.LocklistsCtrl',
-    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist'])
+    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User'])
 
 .run(function ($ionicPlatform, AuthService, $rootScope, $state) {
   $ionicPlatform.ready(function() {
@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
    
         if (toState.authentificate){
             if( !AuthService.isLoggedIn()){
-                $state.go('templates/login.html')
+                $state.go('app.login')
             }
         }
     })
@@ -42,25 +42,17 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
           authentificate: false
       })
 
-    .state('app.search', {
-        url: '/search',
+    .state('app.login', {
+        url: '/login',
         views: {
             'menuContent': {
-                templateUrl: 'templates/search.html'
+                templateUrl: 'templates/login.html',
+                controller: 'UserCtrl',
             }
         },
-        authentificate: true
+        authentificate: false
     })
 
-    .state('app.browse', {
-        url: '/browse',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/browse.html'
-            }
-        },
-        authentificate: true
-    })
         //npm install -- save ng storage
       .state('app.locklists', {
           url: '/lockslists',
@@ -78,7 +70,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         views: {
             'menuContent': {
                 templateUrl: 'templates/locklist.html',
-                controller: 'LocklistCtrl'
+                controller: 'LocklistCtrl',
             }
         },
         authentificate: true
