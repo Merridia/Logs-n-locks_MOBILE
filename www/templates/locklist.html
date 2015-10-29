@@ -5,6 +5,6 @@
     </button>
   </ion-nav-buttons>
     <ion-content>
-        <ion-toggle ng-model="airplaneMode" ng-clic="open()" toggle-class="toggle-calm">{{lock.isOpen}}</ion-toggle>
+        <ion-toggle ng-model="airplaneMode" ng-clic="{{lock.isOpen = !lock.isOpen}}" toggle-class="toggle-calm">{{lock.isOpen}}</ion-toggle>
     </ion-content>
 </ion-view>

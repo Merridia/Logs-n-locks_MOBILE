@@ -16,19 +16,17 @@ angular.module('service.Locklist', [])
     }
 
     this.getLock = function (lockid) {
-        for (var i = locklists.length - 1; i >= 0; i--) {
-            if (locklists[i].id == lockid) {
-                return locklists[i];
-            }
-        };
+        return getlockbyID(lockid);
     }
     
     this.toggleLock = function (lockid){
-        locklists[lockid].isOpen = !locklists[lockid].isOpen;
+        console.log(getlockbyID(lockid).isOpen);
+        getlockbyID(lockid).isOpen = !getlockbyID(lockid).isOpen;
+        console.log(getlockbyID(lockid).isOpen);
     }
     
     this.getIsLock = function (lockid) {
-        return locklists[lockid].isOpen;
+        return getlockbyID(lockid).isOpen;
     }
 
     this.addnewlock = function (lock_title) {
@@ -39,6 +37,14 @@ angular.module('service.Locklist', [])
 
     this.deletelock = function (lock) {
         locklists.splice(locklists.indexOf(lock), 1);
+    }
+
+    getlockbyID = function(lockid) {
+        for (var i = locklists.length - 1; i >= 0; i--) {
+            if (locklists[i].id == lockid) {
+                return locklists[i];
+            }
+        };
     }
 });
 
