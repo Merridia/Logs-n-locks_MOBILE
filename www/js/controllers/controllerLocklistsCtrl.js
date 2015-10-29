@@ -17,7 +17,8 @@ angular.module('controller.LocklistsCtrl', [])
 
     // Delete Lock from the list
     $scope.deleteLock = function (lock) {
-    	$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
+        //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
+        LocklistsServ.deletelock(lock);
   	};
 
     // Called when the form is submitted
