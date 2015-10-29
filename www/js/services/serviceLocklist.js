@@ -30,7 +30,6 @@ angular.module('service.Locklist', [])
     }
 
     this.addnewlock = function (lock_title) {
-        // /!\ Faire attention au erreur avec le locklists.length (2 id identique)
         locklists[id_cursor] = {title: lock_title, id: id_cursor, isOpen: false};
         id_cursor ++;
     }
