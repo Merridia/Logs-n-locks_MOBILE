@@ -1,15 +1,34 @@
 angular.module('service.Locklist', [])
 
-.service('LocklistsServ', function(){
-    var locklists = [
-      { title: 'Entree', id: 0 , isOpen: true},
-      { title: 'Garage', id: 1 , isOpen: false},
-      { title: 'Bureau', id: 2 , isOpen: true},
-      { title: 'Chambre', id: 3 , isOpen: false},
-      { title: 'Reserve', id: 4 , isOpen: false},
-    ];
+.service('LocklistsServ', function($localStorage, $http, $ionicPopup){
+    
+    req =   {
+                method: 'POST',
+                url: 'http://localhost:1337/ListLocksForUser',
+            headers: {
+                'authorization': default,
+            },
+                data: { 
+                        id: $localStorage.User.id,  
+                    }
+            }
 
-    var id_cursor = 5;
+    var success = function(result){
+        console.log(result);
+
+    }
+
+    var error = function(err){
+        $ionicPopup.alert({
+            title: err.statusText,
+            template: err.data.err
+        });
+    }
+
+    $http(req).then(success,error);
+
+
+    var locklists = [];
 
     this.getLocklist = function(){
         return locklists;

@@ -24,8 +24,8 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
     $rootScope.$on("$stateChangeStart",function(event,toState,ToParams, fromState, fromParams){
    
         if (toState.authentificate){
-            if( !AuthService.isLoggedIn()){
-                $state.go('app.login')
+            if( AuthService.isLoggedIn() == undefined ){
+                $state.go('app.login');
             }
         }
     })
@@ -77,5 +77,5 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
     });
     
 // if none of the above states are matched, use this as the fallback
-$urlRouterProvider.otherwise('/app/lockslists')
+$urlRouterProvider.otherwise('/app/login')
   });
