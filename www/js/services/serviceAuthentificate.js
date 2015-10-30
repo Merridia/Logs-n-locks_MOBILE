@@ -5,15 +5,15 @@
 //save User in local STorage
 
 //User is Authentificate?
-.service('AuthService', ['$localStorage', '$http', '$state', function($localStorage, $http, $state){
+.service('AuthService', ['$localStorage', '$http', '$state', '$ionicPopup', function($localStorage, $http, $state, $ionicPopup){
 
     var User = $localStorage.User;
     var Token = $localStorage.Token;
-    var isLog = $localStorage.isLog || false;
+
     var server_url = 'http://localhost:1337';
 
     this.isLoggedIn = function() {
-        return isLog;
+        return User;
     }
 
     this.sendUser = function(mail, pwd) {
@@ -34,13 +34,16 @@
 			if (result.statusText == "OK") {
 				$localStorage.Token = result.data.token;
 				$localStorage.User = result.data.user;
-				$localStorage.isLog = true;
 				$state.go('app.locklists');
+				$http.defaults.headers.common['Authorization'] = "Bearer " + result.data.token;
 			}
 		}
 
 		var error = function(err){
-			
+			$ionicPopup.alert({
+				title: err.statusText,
+				template: err.data.err
+			});
 		}
 
     	$http(req).then(success,error);
