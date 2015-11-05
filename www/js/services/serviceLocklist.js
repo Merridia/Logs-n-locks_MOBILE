@@ -38,10 +38,33 @@ angular.module('service.Locklist', [])
         return getlockbyID(lockid);
     }
     
-    this.toggleLock = function (lockid){
-        console.log(getlockbyID(lockid).isOpen);
-        getlockbyID(lockid).isOpen = !getlockbyID(lockid).isOpen;
-        console.log(getlockbyID(lockid).isOpen);
+    this.toggleLock = function (lockid, lockIsOpen){
+        req =   {
+            method: 'POST',
+            url: 'http://localhost:1337/AddLockForUser',
+            headers: {
+                'authorization': $localStorage.Token,
+            },
+            data: { 
+                idUser: $localStorage.User.id,
+                isOpen: lockIsOpen,  
+            }
+        }
+       
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+        var success = function(result){
+            console.log(result);
+            return defer.resolve(result);
+        }
+        var error = function(err){
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
     }
     
     this.getIsLock = function (lockid) {
