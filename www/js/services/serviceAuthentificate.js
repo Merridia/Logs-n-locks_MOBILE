@@ -30,12 +30,12 @@
 		}
 		
 		var success = function(result){
-			console.log(result);
 			if (result.statusText == "OK") {
 				$localStorage.Token = result.data.token;
 				$localStorage.User = result.data.user;
+				User = result.data.user;
+				$http.defaults.headers.common['authorization'] = result.data.token;
 				$state.go('app.locklists');
-				$http.defaults.headers.common['Authorization'] = "Bearer " + result.data.token;
 			}
 		}
 

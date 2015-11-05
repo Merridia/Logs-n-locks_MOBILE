@@ -1,37 +1,36 @@
 angular.module('service.Locklist', [])
 
-.service('LocklistsServ', function($localStorage, $http, $ionicPopup){
-    
+.service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', function($localStorage, $http, $ionicPopup, AuthService,$q){
+
+    var locklists = undefined;
     req =   {
                 method: 'POST',
                 url: 'http://localhost:1337/ListLocksForUser',
-            headers: {
-                'authorization': default,
-            },
+                headers: {
+                    'authorization': $localStorage.Token,
+                },
                 data: { 
-                        id: $localStorage.User.id,  
-                    }
+                    id: $localStorage.User.id,  
+                }
             }
 
-    var success = function(result){
-        console.log(result);
-
-    }
-
-    var error = function(err){
-        $ionicPopup.alert({
-            title: err.statusText,
-            template: err.data.err
-        });
-    }
-
-    $http(req).then(success,error);
-
-
-    var locklists = [];
+    // ================================================================
 
     this.getLocklist = function(){
-        return locklists;
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+        var success = function(result){
+            locklists = result.data;
+            return defer.resolve(result.data);
+        }
+        var error = function(err){
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
     }
 
     this.getLock = function (lockid) {
@@ -64,5 +63,5 @@ angular.module('service.Locklist', [])
             }
         };
     }
-});
+}]);
 
