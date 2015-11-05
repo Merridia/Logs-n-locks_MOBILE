@@ -1,7 +1,20 @@
 angular.module('controller.LocklistsCtrl', [])
 
 .controller('LocklistsCtrl', ['$scope', '$ionicModal' ,'LocklistsServ', function($scope, $ionicModal, LocklistsServ) {
-	$scope.locklists = LocklistsServ.getLocklist();
+
+    // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+    var success = function(result){
+        console.log(result);
+        $scope.locklists = result;
+    }
+    var error = function(err){
+        $ionicPopup.alert({
+            title: err.statusText,
+            template: err.data.err
+        });
+    }
+
+    LocklistsServ.getLocklist().then(success,error);
 
 	$scope.data = {
     	showReorder: false,
@@ -19,11 +32,13 @@ angular.module('controller.LocklistsCtrl', [])
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
         LocklistsServ.deletelock(lock);
+        LocklistsServ.getLocklist().then(success, error);
   	};
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
         LocklistsServ.addnewlock(lock.title);
+        LocklistsServ.getLocklist().then(success, error);
         $scope.taskModal.hide();
         lock.title = "";
     };
