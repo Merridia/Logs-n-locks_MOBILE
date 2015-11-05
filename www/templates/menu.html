@@ -19,7 +19,7 @@
         <ion-item menu-close href="#/app/login">
           Login
         </ion-item>
-       <ion-item ng-hide="AuthService.isLogin() == true" menu-close href="#/app/login" ng-click="AuthService.logOutUser()">
+       <ion-item ng-hide="AuthService.isLogin() == true" menu-close ng-click="logOutUser()">
           Logout
         </ion-item>
         <ion-item menu-close href="#/app/lockslist">

@@ -55,10 +55,12 @@
 
 
     this.isLogOut = function () {
-                $localStorage.Token = undefined;
-                $localStorage.User = undefined;
-                $state.go('app.login');
-                $http.defaults.headers.common['Authorization'] = "Bearer " + $localStorage.Token;
-                console.log(toto)
+    	User = undefined;
+    	Token = undefined;
+        $localStorage.Token = undefined;
+        $localStorage.User = undefined;
+        console.log($localStorage.Token);
+        console.log($localStorage.User);
+        $http.defaults.headers.common['Authorization'] = "Bearer " + $localStorage.Token;
     };
 }]);

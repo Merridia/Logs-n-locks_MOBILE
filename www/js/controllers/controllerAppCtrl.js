@@ -1,6 +1,6 @@
 angular.module('controller.AppCtrl', [])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout,AuthService) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $state, AuthService) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -20,19 +20,9 @@ angular.module('controller.AppCtrl', [])
     });
 
     //Disconnect message
-   /* $scope.logOutUser = function(){
-        serviceAuthentificate.isLogOut();
-        $state.go('login');
-    };*/
-
-    // Triggered in the login modal to close it
-    $scope.closeLogin = function () {
-        $scope.modal.hide();
-    };
-
-    // Open the login modal
-    $scope.login = function () {
-        $scope.modal.show();
+    $scope.logOutUser = function(){
+        AuthService.isLogOut();
+        $state.go('app.login');
     };
 
     // Perform the login action when the user submits the login form
@@ -52,35 +42,4 @@ angular.module('controller.AppCtrl', [])
     }, {
         scope: $scope
     });
-
-    $scope.createTask = function (lock) {
-        if (!$scope.activeProject || !lock) {
-            return;
-        }
-        $scope.activeProject.tasks.push({
-            title: lock.title
-        });
-
-        $scope.taskModal.hide();
-
-        // Inefficient, but save all the projects
-        Projects.save($scope.Projects);
-
-        lock.title = "";
-    };
-
-    //Create new lock
-    $scope.newTask = function () {
-        $scope.taskModal.show();
-    };
-
-    //Close the taskmodal
-    $scope.closeNewTask = function () {
-        $scope.taskModal.hide();
-    };
-
-    //MenuDelegate
-    $scope.toggleProjects = function () {
-        $ionicSideMenuDelegate.toggleLeft();
-    };
 });
