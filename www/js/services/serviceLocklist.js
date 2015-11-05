@@ -41,12 +41,12 @@ angular.module('service.Locklist', [])
     this.toggleLock = function (lockid, lockIsOpen){
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/AddLockForUser',
+            url: 'http://localhost:1337/ChangeIsOpen',
             headers: {
                 'authorization': $localStorage.Token,
             },
             data: { 
-                idUser: $localStorage.User.id,
+                id: lockid,
                 isOpen: lockIsOpen,  
             }
         }
@@ -63,6 +63,7 @@ angular.module('service.Locklist', [])
             return defer.reject(err);
         }
 
+        console.log(lockIsOpen);
         $http(req).then(success,error);
         return defer.promise;
     }

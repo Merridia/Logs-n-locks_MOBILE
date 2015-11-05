@@ -4,6 +4,6 @@ angular.module('controller.LocklistCtrl', [])
     $scope.lock = LocklistsServ.getLock($stateParams.locklistId);
     
     $scope.open = function (isOpen) {
-        LocklistsServ.toggleLock($stateParams.locklistId, isOpen);
+        LocklistsServ.toggleLock($stateParams.locklistId, !isOpen);
     };
 }]);
