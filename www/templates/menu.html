@@ -16,10 +16,10 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/login">
+        <ion-item ng-hide="LogInOrOut()" menu-close href="#/app/login">
           Login
         </ion-item>
-       <ion-item ng-hide="AuthService.isLogin() == true" menu-close ng-click="logOutUser()">
+       <ion-item ng-hide="!LogInOrOut()" menu-close ng-click="logOutUser()">
           Logout
         </ion-item>
         <ion-item menu-close href="#/app/lockslist">
