@@ -8,20 +8,22 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-nav-view name="menuContent" ng-controller="AppCtrl"></ion-nav-view>
   </ion-side-menu-content>
-
   <ion-side-menu side="left">
     <ion-header-bar class="bar-dark">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Menus</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close href="#/app/login">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+       <ion-item ng-hide="AuthService.isLogin() == true" menu-close href="#/app/login" ng-click="AuthService.logOutUser()">
+          Logout
+        </ion-item>
+        <ion-item menu-close href="#/app/lockslist">
+          Locks List
         </ion-item>
       </ion-list>
     </ion-content>

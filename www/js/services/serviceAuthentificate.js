@@ -9,11 +9,15 @@
 
     var User = $localStorage.User;
     var Token = $localStorage.Token;
-
     var server_url = 'http://localhost:1337';
 
     this.isLoggedIn = function() {
-        return User;
+        if (User == undefined) {
+            return false
+        }
+        else {
+            return true
+        };
     }
 
     this.sendUser = function(mail, pwd) {
@@ -49,4 +53,12 @@
     	$http(req).then(success,error);
     }
 
+
+    this.isLogOut = function () {
+                $localStorage.Token = undefined;
+                $localStorage.User = undefined;
+                $state.go('app.login');
+                $http.defaults.headers.common['Authorization'] = "Bearer " + $localStorage.Token;
+                console.log(toto)
+    };
 }]);

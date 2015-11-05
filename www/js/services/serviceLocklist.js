@@ -6,7 +6,7 @@ angular.module('service.Locklist', [])
                 method: 'POST',
                 url: 'http://localhost:1337/ListLocksForUser',
             headers: {
-                'authorization': default,
+                'authorization': $localStorage.Token,
             },
                 data: { 
                         id: $localStorage.User.id,  

@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
     $rootScope.$on("$stateChangeStart",function(event,toState,ToParams, fromState, fromParams){
    
         if (toState.authentificate){
-            if( AuthService.isLoggedIn() == undefined ){
+            if( AuthService.isLoggedIn() == false ){
                 $state.go('app.login');
             }
         }
