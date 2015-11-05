@@ -32,11 +32,13 @@ angular.module('controller.LocklistsCtrl', [])
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
         LocklistsServ.deletelock(lock);
+        LocklistsServ.getLocklist().then(success, error);
   	};
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
         LocklistsServ.addnewlock(lock.title);
+        LocklistsServ.getLocklist().then(success, error);
         $scope.taskModal.hide();
         lock.title = "";
     };

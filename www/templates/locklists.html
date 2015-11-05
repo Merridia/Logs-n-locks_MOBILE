@@ -11,7 +11,7 @@
     <ion-list show-reorder="data.showReorder">
       <ion-item ng-repeat="lock in locklists" href="#/app/lockslists/{{lock.id}}">
         {{lock.nameLock}}
-        <ion-reorder-button class="ion-minus-round" ng-click="deleteLock(lock)"></ion-reorder-button>
+        <ion-reorder-button class="ion-minus-round" ng-click="deleteLock({{lock.id}})"></ion-reorder-button>
       </ion-item>
     </ion-list>
   </ion-content>
