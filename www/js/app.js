@@ -8,27 +8,28 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
     'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User'])
 
 .run(function ($ionicPlatform, AuthService, $rootScope, $state) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
+    $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
+
     // Redirection de l'utilisateur suivant s'il est loggé ou non 
-    $rootScope.$on("$stateChangeStart",function(event,toState,ToParams, fromState, fromParams){
-   
-        if (toState.authentificate){
-            if( AuthService.isLoggedIn() == false ){
+    $rootScope.$on("$stateChangeStart", function (event, toState, ToParams, fromState, fromParams) {
+
+        if (toState.authentificate) {
+            if (AuthService.isLoggedIn() == false) {
                 $state.go('app.login');
             }
         }
-    })
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -42,6 +43,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
           authentificate: false
       })
 
+        //login view
     .state('app.login', {
         url: '/login',
         views: {
@@ -65,6 +67,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
           authentificate: true
       })
 
+        // show a lock info
     .state('app.single', {
         url: '/lockslists/:locklistId',
         views: {
@@ -74,8 +77,20 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
             }
         },
         authentificate: true
+    })
+
+        //show a lock settings
+    .state('app.LockSetting', {
+        url: '/lockslists/:locklistId/settings',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/settings.html',
+                controller: 'LocklistCtrl',
+            }
+        },
+        authentificate: true
     });
     
 // if none of the above states are matched, use this as the fallback
-$urlRouterProvider.otherwise('/app/login')
+    $urlRouterProvider.otherwise('/app/login')
   });

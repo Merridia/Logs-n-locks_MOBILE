@@ -19,10 +19,15 @@ angular.module('controller.AppCtrl', [])
         $scope.modal = modal;
     });
 
-    //Disconnect message
+    //Disconnect the user
     $scope.logOutUser = function(){
         AuthService.isLogOut();
         $state.go('app.login');
+    };
+
+    //Show or hide button if Loggin/loggout
+    $scope.LogInOrOut = function () {
+        return (AuthService.isLoggedIn());
     };
 
     // Perform the login action when the user submits the login form
@@ -42,4 +47,6 @@ angular.module('controller.AppCtrl', [])
     }, {
         scope: $scope
     });
+
+    //$route.reload(); A ajouter pour reload automatiquement les pages a chaque changements o/
 });
