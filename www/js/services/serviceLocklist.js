@@ -9,7 +9,7 @@ angular.module('service.Locklist', [])
     var askForLockList = function() {
         io.socket.on('connect', function() {
             console.log('connected to sails');
-            io.socket.post('/ListLocksForUser', function(data, jwres) {
+            io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
                 console.log(data);
                 console.log(jwres);
                 locklists = data;
@@ -20,13 +20,13 @@ angular.module('service.Locklist', [])
         })
     }
 
-    console.log(locklists);
+    askForLockList();
 
     this.getLocklist = function(){
         // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
         if (locklists == undefined) {
-            console.log($localStorage.Token)
             askForLockList();
+            return locklists;
         }
         else {
             return locklists;
