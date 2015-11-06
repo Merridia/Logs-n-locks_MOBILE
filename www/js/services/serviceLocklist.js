@@ -4,34 +4,23 @@ angular.module('service.Locklist', [])
 
     var locklists = undefined;
 
+    io.socket.on('connect', function() {
+        console.log('connected to sails');
+        io.socket.post('/ListLocksForUser', function(data, jwres) {
+            console.log(data);
+            console.log(jwres);
+            locklists = data;
+        })
+        io.socket.on('lock', function(msg) {
+            console.log(msg);
+        })
+    })
+
     // ================================================================
 
     this.getLocklist = function(){
         // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        var defer = $q.defer();
-
-        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-        req =   {
-            method: 'POST',
-            url: 'http://localhost:1337/ListLocksForUser',
-            headers: {
-                'authorization': $localStorage.Token,
-            },
-            data: { 
-                id: $localStorage.User.id,  
-            }
-        }
-
-        var success = function(result){
-            locklists = result.data;
-            return defer.resolve(result.data);
-        }
-        var error = function(err){
-            return defer.reject(err);
-        }
-
-        $http(req).then(success,error);
-        return defer.promise;
+        return locklists;
     }
 
     this.getLock = function (lockid) {
@@ -91,7 +80,6 @@ angular.module('service.Locklist', [])
                 'authorization': $localStorage.Token,
             },
             data: { 
-                idUser: $localStorage.User.id,
                 nameLock: lock_title,  
             }
         }
@@ -120,7 +108,6 @@ angular.module('service.Locklist', [])
                 'authorization': $localStorage.Token,
             },
             data: { 
-                idUser: $localStorage.User.id,
                 idLock: lock_id,  
             }
         }

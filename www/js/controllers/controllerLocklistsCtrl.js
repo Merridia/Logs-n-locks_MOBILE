@@ -4,19 +4,7 @@ angular.module('controller.LocklistsCtrl', [])
 
     // connection au serveur pour récupérer les listes des serrures d'un utilisateur
     var getlocklist = function() {
-        var success = function(result){
-            console.log(result);
-            $scope.locklists = result;
-        }
-
-        var error = function (err) {
-            $ionicPopup.alert({
-                title: err.statusText,
-                template: err.data.err
-            });
-        }
-    
-        LocklistsServ.getLocklist().then(success,error);
+        LocklistsServ.getLocklist();
     }
 
     getlocklist();
