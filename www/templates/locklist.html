@@ -1,12 +1,11 @@
-<ion-view view-title="{{lock.nameLock}}">
+<ion-view view-title=" {{lock.id}} - {{lock.nameLock}}">
   <ion-nav-buttons side="right">
-     <button class="button button-icon" >
-     <ion class="icon ion-ios-gear">Settings</ion>
+     <button class="button button-icon" ng-click="setting()">
+         <ion class="icon ion-ios-gear">Settings</ion>
     </button>
   </ion-nav-buttons>
     <ion-content>
         <ion-toggle ng-model="airplaneMode" ng-click="open({{lock.isOpen}})" toggle-class="toggle-calm">{{lock.isOpen}}</ion-toggle>
-        <!-- <a class="btn pull-right" ng-class="{true: 'btn-primary', false: 'btn-danger'}[!patient.archived]" ng-click="patient.archived = !patient.archived">{{!patient.archived && 'Archive' || 'Unarchive'}} patient</a>  -->
-        <!-- <ion-toggle ng-model="airplaneMode" ng-clic="{{lock.isOpen = !lock.isOpen}}" toggle-class="{true: lock.isOpen, false: !lock.isOpen}[!lock.isOpen]">{{lock.isOpen}}</ion-toggle> --> 
+       
     </ion-content>
 </ion-view>

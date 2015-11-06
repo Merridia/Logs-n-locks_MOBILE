@@ -102,6 +102,36 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
+    /*this.rename(nameLock,id){
+         req =   {
+            method: 'POST',
+            url: 'http://localhost:1337/ChangeNameLock',
+            headers: {
+                'authorization': $localStorage.Token,
+            },
+            data: { 
+                idUser: lock.nameLock,
+                idLock: lock_id,  
+            }
+        }
+
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour renommer la serrure de l'utilisateur
+        var success = function(result){
+            console.log(result);
+            return defer.resolve(result);
+        }
+        var error = function(err){
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
+    }*/
+
+
     this.deletelock = function (lock_id) {
 
         req =   {

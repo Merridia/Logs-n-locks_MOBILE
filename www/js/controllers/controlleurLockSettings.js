@@ -1,11 +1,17 @@
 ﻿angular.module('controller.LockSettingsCtrl', [])
 
-.controller('LockSettingsCtrl', ['$route','$scope', '$stateParams', 'LocklistsServ', function ($route,$scope, $stateParams, LocklistsServ) {
-    $scope.rename;
+.controller('LockSettingsCtrl', ['$scope','$stateParams', 'LocklistsServ', function ($scope, $stateParams,LocklistsServ) {
+
+    $scope.lock = LocklistsServ.getLock($stateParams.lockid)
+    console.log($scope.lock);
+    console.log($stateParams.lockid);
     //controlleur pour renommer
-    $scope.addUser;
-    //controlleur pour ajouter un utilisateur au lock
-    $scope.setClock;
-    //controlleur pour ajouter un delai de fermeture du lock -- OPTION --
-    $route.reload();
+    $scope.rename = function (nameLock, id) {
+        LocklistsServ.rename(nameLock, id)
+    };
+    /* --OPTION--
+    //controlleur pour ajouter un delai de fermeture du lock 
+    $scope.setClock = function () {
+
+    }; */
 }]);

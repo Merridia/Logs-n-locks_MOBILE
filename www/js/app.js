@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'controller.LocklistsCtrl',
-    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User'])
+    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User','controller.LockSettingsCtrl'])
 
 .run(function ($ionicPlatform, AuthService, $rootScope, $state) {
     $ionicPlatform.ready(function() {
@@ -80,13 +80,13 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
     })
 
         //show a lock settings
-    .state('app.LockSetting', {
-        url: '/lockslists/:locklistId/settings',
+    .state('app.LockSettings', {
+        url: '/lockslists/settings/:lockid',
         views: {
             'menuContent': {
                 templateUrl: 'templates/settings.html',
-                controller: 'LocklistCtrl',
-            }
+                controller: 'LockSettingsCtrl',
+            },
         },
         authentificate: true
     });
