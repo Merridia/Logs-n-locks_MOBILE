@@ -1,6 +1,6 @@
 angular.module('service.Locklist', [])
 
-.service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', function($localStorage, $http, $ionicPopup, AuthService,$q){
+.service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', '$state', function($localStorage, $http, $ionicPopup, AuthService, $q, $state){
 
     var locklists = undefined;
 
@@ -35,7 +35,13 @@ angular.module('service.Locklist', [])
     }
 
     this.getLock = function (lockid) {
-        return getlockbyID(lockid);
+        if (locklists == undefined) {
+            $state.go('app.locklists');
+        }
+        else
+        {
+            return getlockbyID(lockid);
+        }
     }
     
     this.toggleLock = function (lockid, lockIsOpen){
@@ -56,20 +62,24 @@ angular.module('service.Locklist', [])
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
         var success = function(result){
-            console.log(result);
             return defer.resolve(result);
         }
         var error = function(err){
             return defer.reject(err);
         }
 
-        console.log(lockIsOpen);
         $http(req).then(success,error);
         return defer.promise;
     }
     
     this.getIsLock = function (lockid) {
-        return getlockbyID(lockid).isOpen;
+        if (locklists == undefined) {
+            $state.go('app.locklists');
+        }
+        else
+        {
+            return getlockbyID(lockid).isOpen;
+        }
     }
 
     this.addnewlock = function (lock_title) {
@@ -91,7 +101,6 @@ angular.module('service.Locklist', [])
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
         var success = function(result){
-            console.log(result);
             return defer.resolve(result);
         }
         var error = function(err){
@@ -151,8 +160,35 @@ angular.module('service.Locklist', [])
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
         var success = function(result){
-            console.log(result);
             return defer.resolve(result);
+        }
+        var error = function(err){
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
+    }
+
+    this.getUserList = function (lock_id) {
+
+        req =   {
+            method: 'POST',
+            url: 'http://localhost:1337/ListUsersForLock',
+            headers: {
+                'authorization': $localStorage.Token,
+            },
+            data: { 
+                id: lock_id,  
+            }
+        }
+       
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+        var success = function(result){
+            return defer.resolve(result.data);
         }
         var error = function(err){
             return defer.reject(err);

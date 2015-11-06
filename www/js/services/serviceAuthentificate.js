@@ -20,6 +20,11 @@
         };
     }
 
+    this.getUser = function()
+    {
+    	return User;
+    }
+
     this.sendUser = function(mail, pwd) {
     	req = {
 			method: 'POST',
