@@ -9,7 +9,7 @@
 
     var User = $localStorage.User;
     var Token = $localStorage.Token;
-    var server_url = 'http://localhost:1337';
+    var server_url = 'http://10.33.0.16:1337';
 
     this.isLoggedIn = function() {
         if (User == undefined) {
@@ -44,6 +44,7 @@
 				$localStorage.User = result.data.user;
 				User = result.data.user;
 				$http.defaults.headers.common['authorization'] = result.data.token;
+                console.log(result.data.token);
 				$state.go('app.locklists');
 			}
 		}
@@ -66,6 +67,6 @@
         $localStorage.User = undefined;
         console.log($localStorage.Token);
         console.log($localStorage.User);
-        $http.defaults.headers.common['Authorization'] = "Bearer " + $localStorage.Token;
+        $http.defaults.headers.common['authorization'] = $localStorage.Token;
     };
 }]);

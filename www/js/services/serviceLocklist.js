@@ -4,23 +4,33 @@ angular.module('service.Locklist', [])
 
     var locklists = undefined;
 
-    io.socket.on('connect', function() {
-        console.log('connected to sails');
-        io.socket.post('/ListLocksForUser', function(data, jwres) {
-            console.log(data);
-            console.log(jwres);
-            locklists = data;
-        })
-        io.socket.on('lock', function(msg) {
-            console.log(msg);
-        })
-    })
-
     // ================================================================
+
+    var askForLockList = function() {
+        io.socket.on('connect', function() {
+            console.log('connected to sails');
+            io.socket.post('/ListLocksForUser', function(data, jwres) {
+                console.log(data);
+                console.log(jwres);
+                locklists = data;
+            })
+            io.socket.on('lock', function(msg) {
+                console.log(msg);
+            })
+        })
+    }
+
+    console.log(locklists);
 
     this.getLocklist = function(){
         // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        return locklists;
+        if (locklists == undefined) {
+            console.log($localStorage.Token)
+            askForLockList();
+        }
+        else {
+            return locklists;
+        }
     }
 
     this.getLock = function (lockid) {
@@ -36,7 +46,7 @@ angular.module('service.Locklist', [])
     this.toggleLock = function (lockid, lockIsOpen){
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ChangeIsOpen',
+            url: 'http://10.33.0.16:1337/ChangeIsOpen',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -75,7 +85,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/AddLockForUser',
+            url: 'http://10.33.0.16:1337/AddLockForUser',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -102,7 +112,7 @@ angular.module('service.Locklist', [])
     /*this.rename(nameLock,id){
          req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ChangeNameLock',
+            url: 'http://10.33.0.16:1337/ChangeNameLock',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -133,7 +143,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/DeleteLockForUser',
+            url: 'http://10.33.0.16:1337/DeleteLockForUser',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -161,7 +171,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ListUsersForLock',
+            url: 'http://10.33.0.16:1337/ListUsersForLock',
             headers: {
                 'authorization': $localStorage.Token,
             },
