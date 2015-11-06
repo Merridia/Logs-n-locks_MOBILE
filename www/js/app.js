@@ -55,7 +55,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         authentificate: false
     })
 
-        //npm install -- save ng storage
+        //npm install -- save ngstorage
       .state('app.locklists', {
           url: '/lockslists',
           views: {
@@ -89,8 +89,20 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
             },
         },
         authentificate: true
-    });
+    })
     
+    //modifie our profil
+    .state('app.account', {
+        url: '/account',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/account.html',
+                controller: 'UserCtrl',
+            },
+        },
+        authentificate: true
+    });
+
 // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login')
   });
