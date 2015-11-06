@@ -49,4 +49,7 @@ angular.module('controller.AppCtrl', [])
     });
 
     //$route.reload(); A ajouter pour reload automatiquement les pages a chaque changements o/
+
+    // rajouter le controlleur du socket
+
 });

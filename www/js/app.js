@@ -55,7 +55,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         authentificate: false
     })
 
-        //npm install -- save ng storage
+        //npm install -- save ngstorage
       .state('app.locklists', {
           url: '/lockslists',
           views: {
