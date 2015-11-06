@@ -1,7 +1,7 @@
-<ion-view view-title="{{lock.nameLock}}">
+<ion-view view-title=" {{lock.id}} - {{lock.nameLock}}">
   <ion-nav-buttons side="right">
-     <button class="button button-icon" >
-     <ion class="icon ion-ios-gear">Settings</ion>
+     <button class="button button-icon" ng-click="setting()">
+         <ion class="icon ion-ios-gear">Settings</ion>
     </button>
   </ion-nav-buttons>
     <ion-content>

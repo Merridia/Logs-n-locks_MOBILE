@@ -1,14 +1,16 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>Settings</title>
-    </head>
-    <body>
-        <div>You can set here differents settings for the choosen lock.</div>
-                <button class="ion-person-add">Add a user to the lock</button>
-                <button class="ion-clock">Set the time the lock must be close</button>
-                <button class="ion-edit">Rename the lock</button>     <!-- controlleur pour ajouter un delai de fermeture du lock -- OPTION -->
-        <button class="button button-clear" ng-click="closeLogin()" type="submit">Save</button>
-    </body>
-</html>
+﻿<ion-view view-title="{{lock.id}} - {{lock.nameLock}} - Settings">
+    <ion-header-bar>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">
+                Close
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="card"><h3><center>You can set here differents settings for the choosen lock.</center></h3></div>
+        <button class="button button-block button-dark ion-person-add"> - Add a user to the lock</button>
+        <button class="button button-block button-dark ion-clock"> - Set the time the lock must be close</button>
+        <!-- <button class="ion-edit">Rename the lock</button>     controlleur pour ajouter un delai de fermeture du lock -- OPTION -->
+        <button class="button button-block button-positive" ng-click="closeLogin()" type="submit">Save</button>
+    </ion-content>
+</ion-view>
