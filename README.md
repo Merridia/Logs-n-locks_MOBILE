@@ -4,5 +4,9 @@ For this project, we use :
 
   - Ionic
   - Bower
+  - Gulp
   - AngularJS
-  - NgStorage
+    - NgStorage
+    - Resource
+
+Server info are in  Services files (.js) and in Index (.html)
