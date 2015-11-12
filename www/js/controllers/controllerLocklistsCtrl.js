@@ -4,18 +4,20 @@ angular.module('controller.LocklistsCtrl', [])
 
     console.log("chargement liste des locks");
 
-    io.socket.on('connect', function() {
-        console.log('connected to sails');
-        io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
-            console.log(data);
-            $scope.locklists = data;
-            console.log("$scope : "+$scope.locklists);
-            LocklistsServ.sendList(data);
-        })
-    });
+    // console.log('connected to sails');
+    console.log($localStorage.Token);
+    io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
+        console.log(data);
+        console.log(jwres);
+
+        $scope.locklists = data;
+        console.log("$scope : "+$scope.locklists);
+        LocklistsServ.sendList(data);
+    })
     io.socket.on('lock', function(msg) {
         console.log("message :"+msg);
-    });
+    })
+    
 
     // connection au serveur pour récupérer les listes des serrures d'un utilisateur
 

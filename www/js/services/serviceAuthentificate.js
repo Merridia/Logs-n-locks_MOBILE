@@ -64,6 +64,6 @@
     	Token = undefined;
         $localStorage.Token = undefined;
         $localStorage.User = undefined;
-        $http.defaults.headers.common['authorization'] = $localStorage.Token;
+        $http.defaults.headers.common['authorization'] = undefined;
     };
 }]);
