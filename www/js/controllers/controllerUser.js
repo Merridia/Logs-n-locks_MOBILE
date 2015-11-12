@@ -13,10 +13,6 @@
     //Afficher les informations de l'utilisateur
 	$scope.User = User
     console.log(User)
-	$scope.UserFName = User.Firstname;
-	console.log($scope.UserFName);
-	$scope.UserLName = User.Lastname;
-	console.log($scope.UserLName);
 
 	$scope.account = function () {
 	    console.log($scope.User)

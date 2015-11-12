@@ -3,6 +3,7 @@ angular.module('service.Locklist', [])
 .service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', '$state', function($localStorage, $http, $ionicPopup, AuthService, $q, $state){
 
     var locklists = undefined;
+    var server_url = 'http://10.33.0.16:1337';
 
     // ================================================================
 
@@ -46,7 +47,7 @@ angular.module('service.Locklist', [])
     this.toggleLock = function (lockid, lockIsOpen){
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ChangeIsOpen',
+            url: server_url + '/ChangeIsOpen',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -85,7 +86,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/AddLockForUser',
+            url: server_url + '/AddLockForUser',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -112,7 +113,7 @@ angular.module('service.Locklist', [])
     /*this.rename(nameLock,id){
          req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ChangeNameLock',
+            url: server_url + '/ChangeNameLock',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -143,7 +144,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/DeleteLockForUser',
+            url: server_url + '/DeleteLockForUser',
             headers: {
                 'authorization': $localStorage.Token,
             },
@@ -171,7 +172,7 @@ angular.module('service.Locklist', [])
 
         req =   {
             method: 'POST',
-            url: 'http://localhost:1337/ListUsersForLock',
+            url: server_url + '/ListUsersForLock',
             headers: {
                 'authorization': $localStorage.Token,
             },
