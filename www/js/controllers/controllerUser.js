@@ -3,7 +3,6 @@
 .controller('UserCtrl', ['$scope', '$ionicModal', '$state', '$localStorage', 'AuthService', function ($scope, $ionicModal, $state, $localStorage, AuthService) {
 
     var User = $localStorage.User;
-    console.log(User)
 	$scope.err = $localStorage.err;
 
 	$scope.login = function(loginData) {
@@ -12,7 +11,6 @@
 
     //Afficher les informations de l'utilisateur
 	$scope.User = User
-    console.log(User)
 
 	$scope.account = function () {
 	    console.log($scope.User)

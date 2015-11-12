@@ -2,24 +2,20 @@ angular.module('controller.LocklistsCtrl', [])
 
 .controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
 
-    var askForLockList = function() {
-        io.socket.on('connect', function() {
-            console.log('connected to sails');
-            io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
-                console.log(data);
-                console.log(jwres);
-                $scope.locklists = data;
-                LocklistsServ.sendList(data);
-            })
-            io.socket.on('lock', function(msg) {
-                console.log(msg);
-            })
-        })
-    }
+
+
+    io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
+        console.log(data);
+        console.log(jwres);
+
+        $scope.locklists = data;
+        LocklistsServ.sendList(data);
+    })
+    io.socket.on('lock', function(msg) {
+        console.log("message :"+msg);
+    })
 
     // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-    askForLockList();
-
 	$scope.data = {
     	showReorder: false,
     }
@@ -36,13 +32,11 @@ angular.module('controller.LocklistsCtrl', [])
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
         LocklistsServ.deletelock(lock);
-        LocklistsServ.getLocklist().then(success, error);
   	}
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
         LocklistsServ.addnewlock(lock.title);
-        LocklistsServ.getLocklist().then(success, error);
         $scope.taskModal.hide();
         lock.title = "";
     }
