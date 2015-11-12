@@ -44,7 +44,6 @@
 				$localStorage.User = result.data.user;
 				User = result.data.user;
 				$http.defaults.headers.common['authorization'] = result.data.token;
-                console.log(result.data.token);
 				$state.go('app.locklists');
 			}
 		}
@@ -65,8 +64,6 @@
     	Token = undefined;
         $localStorage.Token = undefined;
         $localStorage.User = undefined;
-        console.log($localStorage.Token);
-        console.log($localStorage.User);
         $http.defaults.headers.common['authorization'] = $localStorage.Token;
     };
 }]);
