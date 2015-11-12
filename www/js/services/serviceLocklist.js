@@ -2,47 +2,10 @@ angular.module('service.Locklist', [])
 
 .service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', '$state', function($localStorage, $http, $ionicPopup, AuthService, $q, $state){
 
-    var locklists = undefined;
     var server_url = 'http://10.33.0.16:1337';
+    var locklists;
 
     // ================================================================
-
-    var askForLockList = function() {
-        io.socket.on('connect', function() {
-            console.log('connected to sails');
-            io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
-                console.log(data);
-                console.log(jwres);
-                locklists = data;
-            })
-            io.socket.on('lock', function(msg) {
-                console.log(msg);
-            })
-        })
-    }
-
-    askForLockList();
-
-    this.getLocklist = function(){
-        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        if (locklists == undefined) {
-            askForLockList();
-            return locklists;
-        }
-        else {
-            return locklists;
-        }
-    }
-
-    this.getLock = function (lockid) {
-        if (locklists == undefined) {
-            $state.go('app.locklists');
-        }
-        else
-        {
-            return getlockbyID(lockid);
-        }
-    }
     
     this.toggleLock = function (lockid, lockIsOpen){
         req =   {
@@ -70,6 +33,10 @@ angular.module('service.Locklist', [])
 
         $http(req).then(success,error);
         return defer.promise;
+    }
+
+    this.sendList = function(list) {
+        locklists = list;
     }
     
     this.getIsLock = function (lockid) {
@@ -196,9 +163,10 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
-    getlockbyID = function(lockid) {
+    this.getlockbyID = function(lockid) {
         for (var i = locklists.length - 1; i >= 0; i--) {
             if (locklists[i].id == lockid) {
+                console.log(locklists[i]);
                 return locklists[i];
             }
         };

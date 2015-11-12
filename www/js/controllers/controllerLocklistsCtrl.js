@@ -1,13 +1,24 @@
 angular.module('controller.LocklistsCtrl', [])
 
-.controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup','LocklistsServ', function($scope, $ionicModal, $ionicPopup, LocklistsServ) {
+.controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
 
-    // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-    var getlocklist = function() {
-        LocklistsServ.getLocklist();
+    var askForLockList = function() {
+        io.socket.on('connect', function() {
+            console.log('connected to sails');
+            io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
+                console.log(data);
+                console.log(jwres);
+                $scope.locklists = data;
+                LocklistsServ.sendList(data);
+            })
+            io.socket.on('lock', function(msg) {
+                console.log(msg);
+            })
+        })
     }
 
-    getlocklist();
+    // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+    askForLockList();
 
 	$scope.data = {
     	showReorder: false,
