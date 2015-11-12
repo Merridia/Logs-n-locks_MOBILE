@@ -90,6 +90,18 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         },
         authentificate: true
     })
+
+     //Create account
+    .state('app.CreateNewAccount', {
+        url: '/account',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/createAccount.html',
+                controller: 'CreateNewAccount',
+            },
+        },
+        authentificate: false
+    })
     
     //modifie our profil
     .state('app.account', {

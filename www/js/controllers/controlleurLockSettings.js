@@ -2,7 +2,7 @@
 
 .controller('LockSettingsCtrl', ['$scope','$stateParams', 'LocklistsServ', function ($scope, $stateParams,LocklistsServ) {
 
-    $scope.lock = LocklistsServ.getLock($stateParams.lockid)
+    $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid)
     console.log($scope.user);
     console.log($stateParams.lockid);
     //controlleur pour renommer

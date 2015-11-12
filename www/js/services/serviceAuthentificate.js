@@ -1,14 +1,12 @@
 ﻿angular.module('Service.Authentificate', ['ngStorage'])
 
-//Send User to Serveur et Get User from serveur
-
-//save User in local STorage
-
 //User is Authentificate?
 .service('AuthService', ['$localStorage', '$http', '$state', '$ionicPopup', function($localStorage, $http, $state, $ionicPopup){
 
+    //save User in local STorage
     var User = $localStorage.User;
     var Token = $localStorage.Token;
+    //Send User to Serveur et Get User from serveur
     var server_url = 'http://10.33.0.16:1337';
 
     this.isLoggedIn = function() {
