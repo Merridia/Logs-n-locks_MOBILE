@@ -16,12 +16,15 @@ angular.module('controller.LocklistsCtrl', [])
             case 'updated':
                 console.log(msg);
                 for (var i = $scope.locklists.length - 1; i >= 0; i--) {
-                    if ($scope.locklists[i].id == msg.data.id) {
-                        $scope.locklists[i] = msg.data;
+                    if ($scope.locklists[i].id == msg.data.lock.id) {
+                        $scope.locklists[i] = msg.data.lock;
                     }
                 };
                 LocklistsServ.sendList($scope.locklists);
-                break; 
+                $scope.$apply();
+                break;
+
+            default: console.log('error');
         }
     })
 

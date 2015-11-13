@@ -21,11 +21,12 @@ angular.module('controller.LocklistCtrl', [])
     }
 
     io.socket.on('lock',function(msg){
+        console.log(msg);
         switch(msg.verb) {
             case 'updated':
-                console.log(msg);
-                $scope.lock = msg.data;
+                $scope.lock = msg.data.lock;
                 toggleStatus();
+                $scope.$apply();
                 break; 
         }
     })
