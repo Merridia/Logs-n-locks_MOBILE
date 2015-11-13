@@ -20,6 +20,10 @@ angular.module('controller.LocklistCtrl', [])
         LocklistsServ.getUserList($stateParams.locklistId).then(success, error);
     }
 
+    io.socket.on('lock',function(msg){
+        console.log(msg)
+    })
+  
     var toggleStatus = function() {
         if ($scope.lock.isOpen) {
             $scope.status = "The door is unlock";
