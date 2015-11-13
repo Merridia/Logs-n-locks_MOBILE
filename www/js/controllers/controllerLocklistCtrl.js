@@ -5,14 +5,9 @@ angular.module('controller.LocklistCtrl', [])
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
     var getUserList = function() {
-        var success = function(result){
-        	for (var i = result.length - 1; i >= 0; i--) {
-        		if(result[i].id == AuthService.getUser().id)
-        		{
-        			result.splice(result[i], 1);
-        		}
-        	};
-            $scope.userList = result;
+        var success = function (result) {
+        	$scope.userList = result;
+        	console.log(result);
         }
 
         var error = function (err) {
@@ -22,7 +17,7 @@ angular.module('controller.LocklistCtrl', [])
             });
         }
     
-        LocklistsServ.getUserList($stateParams.locklistId).then(success,error);
+        LocklistsServ.getUserList($stateParams.locklistId).then(success, error);
     }
 
     var toggleStatus = function() {
@@ -35,6 +30,7 @@ angular.module('controller.LocklistCtrl', [])
     }
 
     toggleStatus();
+    getUserList();
 
     $scope.isOpenOrNot = function() {
         return $scope.lock.isOpen;

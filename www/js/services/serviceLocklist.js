@@ -7,6 +7,7 @@ angular.module('service.Locklist', [])
 
     // ================================================================
     
+    //Get toggle status
     this.toggleLock = function (lockid, lockIsOpen){
         req =   {
             method: 'POST',
@@ -49,6 +50,8 @@ angular.module('service.Locklist', [])
         }
     }
 
+    // ================================================================
+    //Add a new lock
     this.addnewlock = function (lock_title) {
 
         req =   {
@@ -75,10 +78,12 @@ angular.module('service.Locklist', [])
 
         $http(req).then(success,error);
         return defer.promise;
-    }
+    };
 
-    /*this.rename(nameLock,id){
-         req =   {
+    // ================================================================
+    // rename a lock
+    this.rename = function(nameLock, id){
+        req =   {
             method: 'POST',
             url: server_url + '/ChangeNameLock',
             headers: {
@@ -89,7 +94,6 @@ angular.module('service.Locklist', [])
                 idLock: lock_id,  
             }
         }
-
         // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
         var defer = $q.defer();
 
@@ -104,9 +108,10 @@ angular.module('service.Locklist', [])
 
         $http(req).then(success,error);
         return defer.promise;
-    }*/
+    }
 
-
+    // ================================================================
+    // delete a lock
     this.deletelock = function (lock_id) {
 
         req =   {
@@ -135,6 +140,8 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
+    // ================================================================
+    // Get the list of all user of a lock
     this.getUserList = function (lock_id) {
 
         req =   {
@@ -147,12 +154,12 @@ angular.module('service.Locklist', [])
                 id: lock_id,  
             }
         }
-       
         // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
         var defer = $q.defer();
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-        var success = function(result){
+        var success = function (result) {
+            console.log(result);
             return defer.resolve(result.data);
         }
         var error = function(err){
@@ -163,6 +170,8 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
+    // ================================================================
+    // Get lock by its ID
     this.getlockbyID = function(lockid) {
         for (var i = locklists.length - 1; i >= 0; i--) {
             if (locklists[i].id == lockid) {
