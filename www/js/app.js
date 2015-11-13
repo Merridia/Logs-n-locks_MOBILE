@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'controller.LocklistsCtrl',
-    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User','controller.LockSettingsCtrl'])
+    'controller.LocklistCtrl', 'controller.LockSettingsCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User', 'controller.LockSettingsCtrl', 'Service.LockSettings'])
 
 .run(function ($ionicPlatform, AuthService, $rootScope, $state) {
     $ionicPlatform.ready(function() {
