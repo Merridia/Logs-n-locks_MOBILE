@@ -5,8 +5,7 @@
     </button>
   </ion-nav-buttons>
     <ion-content>
-      <ion-toggle ng-hide="{{lock.isOpen}}" ng-model="airplaneMode" ng-click="open()" toggle-class="toggle-assertive">{{status}}</ion-toggle>
-      <ion-toggle ng-hide="{{!lock.isOpen}}" ng-model="airplaneMode" ng-click="open()" toggle-class="toggle-assertive">{{status}}</ion-toggle>
+      <ion-toggle ng-model="airplaneMode" ng-click="open()" toggle-class="toggle-assertive" ng-checked="lock.isOpen">{{status}}</ion-toggle>
       <!--<ion-item> -->
           <div class="item item-divider item-calm">Other user with access to this lock</div>
               <ion-list>

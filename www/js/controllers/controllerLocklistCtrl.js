@@ -21,7 +21,13 @@ angular.module('controller.LocklistCtrl', [])
     }
 
     io.socket.on('lock',function(msg){
-        console.log(msg)
+        switch(msg.verb) {
+            case 'updated':
+                console.log(msg);
+                $scope.lock = msg.data;
+                toggleStatus();
+                break; 
+        }
     })
   
     var toggleStatus = function() {
@@ -41,9 +47,7 @@ angular.module('controller.LocklistCtrl', [])
     }
 
     $scope.open = function () {
-    	$scope.lock.isOpen = !$scope.lock.isOpen;
         LocklistsServ.toggleLock($stateParams.locklistId, $scope.lock.isOpen);
-        toggleStatus();
     };
 
     $scope.setting = function () {

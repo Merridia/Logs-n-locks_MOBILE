@@ -11,7 +11,21 @@ angular.module('controller.LocklistsCtrl', [])
         $scope.locklists = data;
         LocklistsServ.sendList(data);
     })
-   
+    io.socket.on('lock',function(msg){
+        switch(msg.verb) {
+            case 'updated':
+                console.log(msg);
+                for (var i = $scope.locklists.length - 1; i >= 0; i--) {
+                    if ($scope.locklists[i].id == msg.data.id) {
+                        $scope.locklists[i] = msg.data;
+                    }
+                };
+                LocklistsServ.sendList($scope.locklists);
+                break; 
+        }
+    })
+
+
     // connection au serveur pour récupérer les listes des serrures d'un utilisateur
 	$scope.data = {
     	showReorder: false,
