@@ -1,6 +1,6 @@
 ﻿angular.module('controller.CreateNewAccount', [])
 
-.controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
+.controller('CreateNewAccountCtrl', ['$scope', '$ionicModal', function($scope, $ionicModal) {
 
 
     var app = angular.module('sample', [])
