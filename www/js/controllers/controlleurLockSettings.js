@@ -5,6 +5,7 @@
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid)
     console.log($scope.user);
     console.log($stateParams.lockid);
+
     //controlleur pour renommer
     $scope.rename = function (nameLock, id) {
         LocklistsServ.rename(nameLock, id)
