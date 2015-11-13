@@ -2,12 +2,9 @@ angular.module('controller.LocklistsCtrl', [])
 
 .controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
 
-
-
     io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
         console.log(data);
         console.log(jwres);
-
         $scope.locklists = data;
         LocklistsServ.sendList(data);
     })
