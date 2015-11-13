@@ -24,10 +24,12 @@ angular.module('controller.LocklistCtrl', [])
         console.log(msg);
         switch(msg.verb) {
             case 'updated':
-                $scope.lock = msg.data.lock;
-                toggleStatus();
-                $scope.$apply();
-                break; 
+                if(msg.id == $scope.lock.id) {
+                    $scope.lock = msg.data.lock;
+                    toggleStatus();
+                    $scope.$apply();
+                }
+                break;
         }
     })
   
