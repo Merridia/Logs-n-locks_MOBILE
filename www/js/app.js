@@ -93,11 +93,11 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
 
      //Create account
     .state('app.CreateNewAccount', {
-        url: '/account',
+        url: '/createaccount',
         views: {
             'menuContent': {
                 templateUrl: 'templates/createAccount.html',
-                controller: 'CreateNewAccount',
+                controller: 'CreateNewAccountCtrl',
             },
         },
         authentificate: false

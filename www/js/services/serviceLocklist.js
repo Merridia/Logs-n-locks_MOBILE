@@ -69,9 +69,11 @@ angular.module('service.Locklist', [])
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
         var success = function(result){
+            console.log("La porte à était bien créée");
             return defer.resolve(result);
         }
         var error = function(err){
+            console.log("err : "+err);
             return defer.reject(err);
         }
 
@@ -163,9 +165,11 @@ angular.module('service.Locklist', [])
 
         // connection au serveur pour récupérer les listes des serrures d'un utilisateur
         var success = function(result){
+            console.log("La porte à était bien retiré");
             return defer.resolve(result);
         }
         var error = function(err){
+            console.log("err : "+err);
             return defer.reject(err);
         }
 

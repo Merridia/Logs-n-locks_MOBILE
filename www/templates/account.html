@@ -1,28 +1,18 @@
 ﻿<ion-view view-title="{{User.firstname}} {{User.lastname}}">
-    <ion-nav-buttons side="right">
-        <button class="button button-icon" ng-click="data.showReorder = !data.showReorder;">
-            <i class="icon ion-minus-circled"></i>
-        </button>
-    </ion-nav-buttons>
     <ion-content>
         <div class="list" show-reorder="data.showReorder">
             <div class="item item-divider item-calm"> User information</div>
             <a class="item item-stacked-label">
                 <span class="input-label">User Firstname</span>
-                <span class="">{{User.firstname}}
-                <ion-reorder-button class="ion-minus-round"></ion-reorder-button></span>
+                <span class="label">{{User.firstname}}
             </a>
             <a class="item item-stacked-label">
                 <span class="input-label">User Lastname</span>
-                <span class="">
-                    {{User.lastname}}
-                    <ion-reorder-button class="ion-minus-round"></ion-reorder-button></span>
+                <span class="label">{{User.lastname}}</span>
             </a>  
             <a class="item item-stacked-label">
                 <span class="input-label">Email</span>
-                <span class="">
-                    {{User.email}}
-                    <ion-reorder-button class="ion-minus-round"></ion-reorder-button></span>
+                <span class="label">{{User.email}}</span>
             </a>
 
             <div class="item item-divider item-calm"> User configuration</div>
