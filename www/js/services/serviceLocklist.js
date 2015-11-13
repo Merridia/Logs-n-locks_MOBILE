@@ -92,7 +92,7 @@ angular.module('service.Locklist', [])
                 'authorization': $localStorage.Token,
             },
             data: {
-                email: mail,
+                email: email,
                 idLock: idlock
             }
         }
@@ -177,36 +177,7 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
-    // ================================================================
-    // Get the list of all user of a lock
-    this.getUserList = function (lock_id) {
-
-        req =   {
-            method: 'POST',
-            url: server_url + '/ListUsersForLock',
-            headers: {
-                'authorization': $localStorage.Token,
-            },
-            data: { 
-                id: lock_id,  
-            }
-        }
-        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        var defer = $q.defer();
-
-        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-        var success = function (result) {
-            console.log("LosklistServ: " + result)
-            return defer.resolve(result);
-        }
-        var error = function(err){
-            return defer.reject(err);
-        }
-
-        $http(req).then(success,error);
-        return defer.promise;
-    }
-
+   
     // ================================================================
     // Get lock by its ID
     this.getlockbyID = function(lockid) {

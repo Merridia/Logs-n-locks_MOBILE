@@ -2,29 +2,9 @@ angular.module('controller.LocklistCtrl', [])
 
 .controller('LocklistCtrl',['$scope', '$stateParams', 'LocklistsServ', '$state','AuthService', function ($scope, $stateParams,LocklistsServ, $state, AuthService) {
 
-    $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId); 
+    $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
-    var getUserList = function() {
-        var success = function (result) {
-            $scope.userList = result;
-            console.log( "liste du locklistctlr: " + $scope.userList);
-        }
-
-        var error = function (err) {
-            $ionicPopup.alert({
-                title: err.statusText,
-                template: err.data.err
-            });
-        }
-    
-        LocklistsServ.getUserList($stateParams.locklistId).then(success, error);
-    }
-
-    io.socket.on('lock',function(msg){
-        console.log(msg)
-    })
-  
-    var toggleStatus = function() {
+    var toggleStatus = function () {
         if ($scope.lock.isOpen) {
             $scope.status = "The door is unlock";
         }
@@ -32,9 +12,7 @@ angular.module('controller.LocklistCtrl', [])
             $scope.status = "The door is lock";
         }
     }
-
     toggleStatus();
-    //getUserList();
 
     $scope.isOpenOrNot = function() {
         return $scope.lock.isOpen;

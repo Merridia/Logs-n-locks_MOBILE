@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col">Name of the lock</div>
                     <div class="col">{{lock.nameLock}}</div>
-                <div class="col col-right"><button class="button button-dark ion-edit" ng-click="newLockName()"> - Rename the lock</button></div>
+                <div class="col col-right"><button class="button button-dark ion-edit" ng-click="newLockName()">  Rename the lock</button></div>
              </div>
         </ion-list>
         
@@ -21,13 +21,13 @@
         <!-- Add a user to the lock -->
         <div class="item item-divider item-calm">Other user with access to this lock</div>
         <ion-list>
-            <div class="row"><div class="col col-right"><button class="button button-left button-dark ion-person-add " ng-click="newUserToLock()">Add a user</button></div></div>
+            <div class="row"><div class="col col-right"><button class="button button-left button-dark ion-person-add " ng-click="newUserToLock()">  Add a user</button></div></div>
             <div class="row">
                 <div class="col col-stable col-center">Firstname</div>
                 <div class="col col-stable col-center">Lastname</div>
                 <div class="col col-stable col-center">Email</div>
             </div>
-            <ion-item ng-controller="LockSettingsCtrl"ng-repeat="user in userlists">
+            <ion-item ng-controller="LockSettingsCtrl" ng-repeat="user in userList">
                 <div class="row">
                     <div class="col">{{user.firstname}}</div>
                     <div class="col">{{user.lastname}}</div>
@@ -39,7 +39,4 @@
         
         <!-- submit button to the bottom -->
     </ion-content>
-    <div class="bar bar-footer">
-        <button class="button button-full button-positive" ng-click="closeLogin()" type="submit">Save</button>
-    </div>
 </ion-view>
