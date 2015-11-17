@@ -24,6 +24,20 @@ angular.module('controller.LocklistsCtrl', [])
                 $scope.$apply();
                 break;
 
+            case 'created':
+                console.log(msg);
+                $scope.locklists.push(msg.data.lock);
+                LocklistsServ.sendList($scope.locklists);
+                $scope.$apply();
+                break;
+
+            case 'deleted':
+                console.log(msg);
+                $scope.locklists.splice($scope.locklists.indexOf(msg.data.lock));
+                LocklistsServ.sendList($scope.locklists);
+                $scope.$apply();
+                break;
+
             default: console.log('error');
         }
     })
