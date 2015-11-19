@@ -4,7 +4,15 @@
 
     var server_url = 'http://10.33.1.46:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
-    
+    $scope.CurrentUser = $localStorage.user
+
+    var IsAdmin = function () {
+        if (lock.isAdmin == CurrentUser.id) {
+            Admin = true;
+        }
+        else
+            Admin = false;
+    };
 
     // ================================================================
     // Get the list of all user of a lock
