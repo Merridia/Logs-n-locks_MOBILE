@@ -2,7 +2,7 @@ angular.module('service.Locklist', [])
 
 .service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', '$state', function($localStorage, $http, $ionicPopup, AuthService, $q, $state){
 
-    var server_url = 'http://10.33.1.46:1337';
+    var server_url = 'http://10.33.0.16:1337';
     var locklists;
 
     // ================================================================
@@ -141,6 +141,37 @@ angular.module('service.Locklist', [])
         }
         var error = function(err){
             console.log("err : "+err);
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
+    }
+
+    // ================================================================
+    // get logs for a lock
+    this.getLogsForLock = function (lock_id) {
+
+        req =   {
+            method: 'POST',
+            url: server_url + '/ShowLogsForLock',
+            headers: {
+                'authorization': $localStorage.Token,
+            },
+            data: { 
+                idLock: lock_id,  
+            }
+        }
+       
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+        var success = function(result){
+            return defer.resolve(result);
+        }
+        var error = function(err){
+            console.log(err);
             return defer.reject(err);
         }
 

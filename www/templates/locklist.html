@@ -14,18 +14,14 @@
             <ion-list>
                 <div class="row row-stable">
                     <div class="col">Date</div>
-                    <div class="col">Time</div>
-                    <div class="col">Status</div>
-                    <div class="col">User</div>
+                    <div class="col">Message</div>
                 </div>
-                <!--<ion-item ng-repeat="stats">
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                </div>
-            </ion-item> -->
+                <ion-item ng-repeat="log in logs">
+                    <div class="row">
+                        <div class="col">{{log.updatedAt}}</div>
+                        <div class="col">{{log.message}}</div>
+                    </div>
+                </ion-item>
             </ion-list>
 </ion-content>
 </ion-view>
