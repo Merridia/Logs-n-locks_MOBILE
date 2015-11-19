@@ -4,17 +4,19 @@
 
     var server_url = 'http://10.33.1.46:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
+    console.log($scope.lock)
     $scope.Admin = false;
-    $scope.CurrentUser = $localStorage.user
+    $scope.CurrentUser = $localStorage.User
+    console.log($localStorage.User)
 
     var IsAdmin = function () {
-        if (lock.isAdmin == CurrentUser.id) {
-            Admin = true;
+        if ($scope.lock.idAdmin == $scope.CurrentUser.id) {
+            $scope.Admin = true;
         }
         else
-            Admin = false;
+            $scope.Admin = false;
     };
-
+    IsAdmin();
     // ================================================================
     // Get the list of all user of a lock
     var getUserList = function (lock_id) {
@@ -59,9 +61,9 @@
 
     //controlleur to rename a lock
     $scope.rename = function (nameLock) {
+        $scope.taskModal_rename.hide();
         LocklistsServ.rename(nameLock, $stateParams.lockid);
         // Called the model when the form is submitted
-        $scope.taskModal_rename.hide();
     };
     // Open our new task modal
     $scope.newLockName = function () {

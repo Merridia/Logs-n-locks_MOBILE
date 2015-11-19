@@ -16,11 +16,28 @@
             </a>
 
             <div class="item item-divider item-calm"> User configuration</div>
-            <button class="button button-block button-black">Modify password</button>
-            <!-- <div class="list" ng-hide="true">
-                    <a class="item"></a>
-            </div>-->
-            <button class="button button-block button-assertive">Delete account</button>
-        </div>
+            <button class="button button-block button-black" ng-click="ModifMdp=!ModifMdp">Modify password</button>
+            <!-- ---------------------- modif Password ----------------------------- -->
+            <div class="item" ng-hide ="!ModifMdp">
+                <span class="input-label">Password</span>
+                <form class="item item-input item-button-right" ng-submit="ChangeCurrentPassword(NewPassword)" >
+                    <input type="password" ng-model="NewPassword" >
+                    <button class="button button-positive" type="submit">
+                        <i class="icon ion-email" > Save </i>
+                    </button>
+                </form>
+             </div>
+            <!-- ---------------------- Delete Account ----------------------------- -->
+            <button class="button button-block button-assertive" ng-click="AccDelete=!AccDelete">Delete account</button>
+            <form class="item" ng-hide="!AccDelete" ng-controller="UserCtrl" ng-submit="DeleteCurrentAccount(DeleteData)">
+                <span class="input-label">Confirme Password</span>
+                <div class="item item-input item-button-right">
+                    <input type="password" ng-model="DeleteData.Password">
+                    <button class="button button-positive" type="submit">
+                        <i class="icon ion-trash-b"> Delete </i>
+                    </button>
+                </div>
+            </form> 
+            </div>
     </ion-content>
 </ion-view>
