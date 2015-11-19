@@ -9,9 +9,9 @@ angular.module('controller.LocklistsCtrl', [])
         LocklistsServ.sendList(data);
     })
     io.socket.on('lock',function(msg){
+        console.log(msg);
         switch(msg.verb) {
             case 'updated':
-                console.log(msg);
                 for (var i = $scope.locklists.length - 1; i >= 0; i--) {
                     if ($scope.locklists[i].id == msg.data.lock.id) {
                         $scope.locklists[i] = msg.data.lock;
@@ -22,16 +22,16 @@ angular.module('controller.LocklistsCtrl', [])
                 break;
 
             case 'created':
-                console.log(msg);
                 $scope.locklists.push(msg.data.lock);
                 LocklistsServ.sendList($scope.locklists);
                 $scope.$apply();
                 break;
 
             case 'removedFrom':
-                console.log(msg);
-                $scope.locklists.splice($scope.locklists.indexOf(msg.data.lock));
-                LocklistsServ.sendList($scope.locklists);
+                if ($localStorage.User.id == msg.removedId) {
+                    $scope.locklists.splice($scope.locklists.indexOf(LocklistsServ.getlockbyID(msg.id)), 1);
+                    LocklistsServ.sendList($scope.locklists);
+                }
                 $scope.$apply();
                 break;
 
@@ -55,14 +55,12 @@ angular.module('controller.LocklistsCtrl', [])
     // Delete Lock from the list
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
-        LocklistsServ.deletelock(lock);
+        io.socket.post('/DeleteLockForUser', { token: $localStorage.Token, idLock: lock });
   	}
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
         io.socket.post('/AddLockForUser', { token: $localStorage.Token, nameLock: lock.title }, function(data, jwres) {
-            console.log(data);
-            console.log(jwres)
 
             $scope.locklists.push(data);
             LocklistsServ.sendList($scope.locklists);
