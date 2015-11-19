@@ -41,9 +41,7 @@ angular.module('controller.LocklistCtrl', [])
             $scope.status = "The door is lock";
         }
     }
-
     toggleStatus();
-    getUserList();
 
     $scope.isOpenOrNot = function() {
         return $scope.lock.isOpen;
@@ -55,7 +53,6 @@ angular.module('controller.LocklistCtrl', [])
     };
 
     $scope.setting = function () {
-        console.log($scope.lock.id)
         $state.go('app.LockSettings', {
             lockid : $scope.lock.id,
         });

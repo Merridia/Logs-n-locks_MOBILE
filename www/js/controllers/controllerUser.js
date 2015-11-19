@@ -3,7 +3,7 @@
 .controller('UserCtrl', ['$scope', '$ionicModal', '$state', '$localStorage', 'AuthService', function ($scope, $ionicModal, $state, $localStorage, AuthService) {
 
     var User = $localStorage.User;
-	$scope.err = $localStorage.err;
+    $scope.err = $localStorage.err;
 
 	$scope.login = function(loginData) {
 		AuthService.sendUser(loginData.email, loginData.password);

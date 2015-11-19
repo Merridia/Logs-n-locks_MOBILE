@@ -7,13 +7,36 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <div class="card"><h3><center>You can set here differents settings for the choosen lock.</center></h3></div>
-        <button class="button button-block button-dark ion-person-add"> - Add a user to the lock</button><!-- Lockid + email -->
-        <button class="button button-block button-dark ion-clock"> - Set the time the lock must be close</button>
-        <!-- <button class="ion-edit">Rename the lock</button>     controlleur pour ajouter un delai de fermeture du lock -- OPTION -->
+        <!-- Change the name of the lock -->
+        <div class="item item-divider item-calm">Other user with access to this lock</div>
+        <ion-list>
+            <div class="row">
+                <div class="col">Name of the lock</div>
+                    <div class="col">{{lock.nameLock}}</div>
+                <div class="col col-right"><button class="button button-dark ion-edit" ng-click="newLockName()">  Rename the lock</button></div>
+             </div>
+        </ion-list>
         
-        <div class="bar bar-footer">
-            <button class="button button-block button-positive" ng-click="closeLogin()" type="submit">Save</button>
-        </div>
+
+        <!-- Add a user to the lock -->
+        <div class="item item-divider item-calm">Other user with access to this lock</div>
+        <ion-list>
+            <div class="row"><div class="col col-right"><button class="button button-left button-dark ion-person-add " ng-click="newUserToLock()">  Add a user</button></div></div>
+            <div class="row">
+                <div class="col col-stable col-center">Firstname</div>
+                <div class="col col-stable col-center">Lastname</div>
+                <div class="col col-stable col-center">Email</div>
+            </div>
+            <ion-item ng-controller="LockSettingsCtrl" ng-repeat="user in userList">
+                <div class="row">
+                    <div class="col">{{user.firstname}}</div>
+                    <div class="col">{{user.lastname}}</div>
+                    <div class="col">{{user.email}}</div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <!-- <button class="button button-block button-dark ion-clock"> - Set the time the lock must be close</button> OPTION -->
+        
+        <!-- submit button to the bottom -->
     </ion-content>
 </ion-view>

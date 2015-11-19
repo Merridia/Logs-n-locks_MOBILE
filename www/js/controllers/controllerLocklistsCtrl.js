@@ -2,12 +2,9 @@ angular.module('controller.LocklistsCtrl', [])
 
 .controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
 
-
-
     io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
-        console.log(data);
-        console.log(jwres);
-
+        //console.log(data);
+        //console.log(jwres);
         $scope.locklists = data;
         LocklistsServ.sendList(data);
     })
@@ -41,7 +38,6 @@ angular.module('controller.LocklistsCtrl', [])
             default: console.log('error');
         }
     })
-
 
     // connection au serveur pour récupérer les listes des serrures d'un utilisateur
 	$scope.data = {

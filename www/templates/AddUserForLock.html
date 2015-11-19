@@ -1,0 +1,19 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title title-black">Add User</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeAddUser()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="AddUser(email)">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">User Valid Email</span>
+                    <input type="email" ng-model="email">
+                </label>
+            </div>
+            <button class="button button-block button-positive" type="submit">Add User</button>
+        </form>
+    </ion-content>
+</ion-modal-view>

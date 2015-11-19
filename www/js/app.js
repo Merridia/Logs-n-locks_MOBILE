@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'controller.LocklistsCtrl',
-    'controller.LocklistCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User','controller.LockSettingsCtrl'])
+    'controller.LocklistCtrl', 'controller.LockSettingsCtrl', 'controller.AppCtrl', 'service.Locklist', 'controllers.User', 'controller.LockSettingsCtrl', 'Service.LockSettings', 'controller.CreateNewAccount'])
 
 .run(function ($ionicPlatform, AuthService, $rootScope, $state) {
     $ionicPlatform.ready(function() {
@@ -97,7 +97,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         views: {
             'menuContent': {
                 templateUrl: 'templates/createAccount.html',
-                controller: 'CreateNewAccountCtrl',
+                //controller: 'CreateNewAccountCtrl',
             },
         },
         authentificate: false
