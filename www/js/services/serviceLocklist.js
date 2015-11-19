@@ -85,35 +85,6 @@ angular.module('service.Locklist', [])
 
     // ================================================================
     // delete a lock
-    this.deletelock = function (lock_id) {
-
-        req =   {
-            method: 'POST',
-            url: server_url + '/DeleteLockForUser',
-            headers: {
-                'authorization': $localStorage.Token,
-            },
-            data: { 
-                idLock: lock_id,  
-            }
-        }
-       
-        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        var defer = $q.defer();
-
-        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-        var success = function(result){
-            console.log("La porte à était bien retiré");
-            return defer.resolve(result);
-        }
-        var error = function(err){
-            console.log("err : "+err);
-            return defer.reject(err);
-        }
-
-        $http(req).then(success,error);
-        return defer.promise;
-    }
 
     // ================================================================
     // Get the list of all user of a lock
