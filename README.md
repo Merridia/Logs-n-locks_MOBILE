@@ -9,4 +9,4 @@ For this project, we use :
     - NgStorage
     - Resource
 
-Server info are in  Services files (.js) and in Index (.html)
+Server info are in  Services files (.js), Controller files (.js) and in Index (.html)
