@@ -55,6 +55,7 @@ angular.module('controller.LocklistsCtrl', [])
     // Delete Lock from the list
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
+        console.log(lock);
         io.socket.post('/DeleteLockForUser', { token: $localStorage.Token, idLock: lock });
   	}
 

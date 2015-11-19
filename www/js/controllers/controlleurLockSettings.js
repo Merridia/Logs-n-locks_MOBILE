@@ -2,7 +2,7 @@
 
 .controller('LockSettingsCtrl', ['$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
 
-    var server_url = 'http://10.33.1.46:1337';
+    var server_url = 'http://10.33.0.16:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
     
 

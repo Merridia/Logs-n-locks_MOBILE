@@ -2,7 +2,7 @@ angular.module('service.Locklist', [])
 
 .service('LocklistsServ', ['$localStorage', '$http', '$ionicPopup', 'AuthService','$q', '$state', function($localStorage, $http, $ionicPopup, AuthService, $q, $state){
 
-    var server_url = 'http://10.33.1.46:1337';
+    var server_url = 'http://10.33.0.16:1337';
     var locklists;
 
     // ================================================================
