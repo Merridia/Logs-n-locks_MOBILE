@@ -4,7 +4,36 @@ angular.module('controller.LocklistCtrl', [])
 
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
-    var toggleStatus = function () {
+    var getUserList = function() {
+        var success = function (result) {
+        	$scope.userList = result;
+        	console.log(result);
+        }
+
+        var error = function (err) {
+            $ionicPopup.alert({
+                title: err.statusText,
+                template: err.data.err
+            });
+        }
+    
+        LocklistsServ.getUserList($stateParams.locklistId).then(success, error);
+    }
+
+    io.socket.on('lock',function(msg){
+        console.log(msg);
+        switch(msg.verb) {
+            case 'updated':
+                if(msg.id == $scope.lock.id) {
+                    $scope.lock = msg.data.lock;
+                    toggleStatus();
+                    $scope.$apply();
+                }
+                break;
+        }
+    })
+  
+    var toggleStatus = function() {
         if ($scope.lock.isOpen) {
             $scope.status = "The door is unlock";
         }
@@ -19,9 +48,8 @@ angular.module('controller.LocklistCtrl', [])
     }
 
     $scope.open = function () {
-    	$scope.lock.isOpen = !$scope.lock.isOpen;
+        $scope.lock.isOpen = !$scope.lock.isOpen;
         LocklistsServ.toggleLock($stateParams.locklistId, $scope.lock.isOpen);
-        toggleStatus();
     };
 
     $scope.setting = function () {
