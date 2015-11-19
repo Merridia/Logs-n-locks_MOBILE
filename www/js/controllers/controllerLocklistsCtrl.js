@@ -9,6 +9,7 @@ angular.module('controller.LocklistsCtrl', [])
         LocklistsServ.sendList(data);
     })
     io.socket.on('lock',function(msg){
+        console.log(msg);
         switch(msg.verb) {
             case 'updated':
                 for (var i = $scope.locklists.length - 1; i >= 0; i--) {
@@ -34,7 +35,7 @@ angular.module('controller.LocklistsCtrl', [])
                 $scope.$apply();
                 break;
 
-            default: console.log('error');
+            default: console.log('none');
         }
     })
 
@@ -60,7 +61,6 @@ angular.module('controller.LocklistsCtrl', [])
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
         io.socket.post('/AddLockForUser', { token: $localStorage.Token, nameLock: lock.title }, function(data, jwres) {
-
             $scope.locklists.push(data);
             LocklistsServ.sendList($scope.locklists);
         })

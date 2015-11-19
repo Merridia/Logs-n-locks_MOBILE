@@ -148,6 +148,37 @@ angular.module('service.Locklist', [])
         return defer.promise;
     }
 
+    // ================================================================
+    // get logs for a lock
+    this.getLogsForLock = function (lock_id) {
+
+        req =   {
+            method: 'POST',
+            url: server_url + '/ShowLogsForLock',
+            headers: {
+                'authorization': $localStorage.Token,
+            },
+            data: { 
+                idLock: lock_id,  
+            }
+        }
+       
+        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
+        var defer = $q.defer();
+
+        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
+        var success = function(result){
+            return defer.resolve(result);
+        }
+        var error = function(err){
+            console.log(err);
+            return defer.reject(err);
+        }
+
+        $http(req).then(success,error);
+        return defer.promise;
+    }
+
    
     // ================================================================
     // Get lock by its ID

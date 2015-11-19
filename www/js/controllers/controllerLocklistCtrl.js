@@ -27,6 +27,7 @@ angular.module('controller.LocklistCtrl', [])
                 if(msg.id == $scope.lock.id) {
                     $scope.lock = msg.data.lock;
                     toggleStatus();
+                    getLogs();
                     $scope.$apply();
                 }
                 break;
@@ -42,6 +43,28 @@ angular.module('controller.LocklistCtrl', [])
         }
     }
     toggleStatus();
+
+    var getLogs = function() {
+        var success = function (result) {
+            var loglist = result.data;
+            for (var i = 0; i <= result.data.length; i++) {
+                if(result.data[i] == null) {
+                    loglist.splice(i, 10-i);
+                }
+            };
+            $scope.logs = loglist;
+        }
+
+        var error = function (err) {
+            $ionicPopup.alert({
+                title: err.statusText,
+                template: err.data.err
+            });
+        }
+    
+        LocklistsServ.getLogsForLock($stateParams.locklistId).then(success, error);
+    }
+    getLogs();
 
     $scope.isOpenOrNot = function() {
         return $scope.lock.isOpen;
