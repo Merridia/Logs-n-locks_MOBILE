@@ -4,7 +4,6 @@
 
     var server_url = 'http://10.33.0.16:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
-    
 
     // ================================================================
     // Get the list of all user of a lock
@@ -34,8 +33,36 @@
         $http(req).then(success, error);
         //return defer.promise;
     };
+
     // ================================================================
-    getUserList($stateParams.lockid)
+    io.socket.on('lock',function(msg){
+        console.log(msg);
+        switch(msg.verb) {
+            case 'updated':
+                if(msg.id == $scope.lock.id) {
+                    $scope.lock = msg.data.lock;
+                    $scope.$apply();
+                }
+                break;
+
+            case 'removedFrom':
+                if ($scope.lock.id == msg.id) {
+                    getUserList($stateParams.lockid);
+                }
+                $scope.$apply();
+                break;
+
+            case 'addedTo':
+                if ($scope.lock.id == msg.id) {
+                    getUserList($stateParams.lockid);
+                }
+                $scope.$apply();
+                break;
+        }
+    })
+
+    // ================================================================
+    getUserList($stateParams.lockid);
     // ================================================================
 
     /*-- Rename lock modal*/

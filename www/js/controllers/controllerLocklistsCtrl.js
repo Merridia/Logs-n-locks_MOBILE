@@ -9,7 +9,6 @@ angular.module('controller.LocklistsCtrl', [])
         LocklistsServ.sendList(data);
     })
     io.socket.on('lock',function(msg){
-        console.log(msg);
         switch(msg.verb) {
             case 'updated':
                 for (var i = $scope.locklists.length - 1; i >= 0; i--) {
@@ -55,7 +54,6 @@ angular.module('controller.LocklistsCtrl', [])
     // Delete Lock from the list
     $scope.deleteLock = function (lock) {
         //$scope.locklists.splice($scope.locklists.indexOf(lock), 1);
-        console.log(lock);
         io.socket.post('/DeleteLockForUser', { token: $localStorage.Token, idLock: lock });
   	}
 
