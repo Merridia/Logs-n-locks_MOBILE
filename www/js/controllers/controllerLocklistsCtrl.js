@@ -46,7 +46,7 @@ angular.module('controller.LocklistsCtrl', [])
 
     // Create and load the Modal
     $ionicModal.fromTemplateUrl('templates/new_lock_list.html', function (modal) {
-        $scope.taskModal = modal;
+        $scope.ModalLockList = modal;
     }, {
         scope: $scope,
         animation: 'slide-in-up'
@@ -65,18 +65,18 @@ angular.module('controller.LocklistsCtrl', [])
             $scope.locklists.push(data);
             LocklistsServ.sendList($scope.locklists);
         })
-        $scope.taskModal.hide();
+        $scope.ModalLockList.hide();
         lock.title = "";
     }
 
     // Open our new task modal
     $scope.newLockList = function () {
-        $scope.taskModal.show();
+        $scope.ModalLockList.show();
     }
 
     // Close the new task modal
     $scope.closeNewLockList = function () {
-        $scope.taskModal.hide();
+        $scope.ModalLockList.hide();
     }
 }])
 
