@@ -38,17 +38,11 @@
     getUserList($stateParams.lockid)
     // ================================================================
 
-    //controlleur to add a user to a lock
-
-
-
-
-    // ================================================================
     /*-- Rename lock modal*/
 
     // Create and load the Modal
     $ionicModal.fromTemplateUrl('templates/renameLock.html', function (modal) {
-        $scope.taskModal = modal;
+        $scope.taskModal_rename = modal;
     }, {
         scope: $scope,
         animation: 'slide-in-up'
@@ -58,24 +52,24 @@
     $scope.rename = function (nameLock) {
         LocklistsServ.rename(nameLock, $stateParams.lockid);
         // Called the model when the form is submitted
-        $scope.taskModal.hide();
+        $scope.taskModal_rename.hide();
     };
     // Open our new task modal
     $scope.newLockName = function () {
-        $scope.taskModal.show();
+        $scope.taskModal_rename.show();
     }
 
     // Close the new task modal
     $scope.closeNewLockName = function () {
-        $scope.taskModal.hide();
+        $scope.taskModal_rename.hide();
     }
 
     // ================================================================
     /*-- Add User for Lock modal*/
-
+    //controlleur to add a user to a lock
     // Create and load the Modal
     $ionicModal.fromTemplateUrl('templates/addUserForLock.html', function (modal) {
-        $scope.taskModal = modal;
+        $scope.taskModal_addUser = modal;
     }, {
         scope: $scope,
         animation: 'slide-in-up'
@@ -85,11 +79,11 @@
     $scope.addUsertoLock = function (email) {
         LocklistsServ.addUsertoLock(email, $stateParams.lockid);
         // Called the model when the form is submitted
-        $scope.taskModal.hide();
+        $scope.taskModal_addUser.hide();
     };
     // Open our new task modal
     $scope.newUserToLock = function () {
-        $scope.taskModal.show();
+        $scope.taskModal_addUser.show();
     }
 
     $scope.AddUser = function (email) {
@@ -98,7 +92,7 @@
     }
     // Close the new task modal
     $scope.closeAddUser = function () {
-        $scope.taskModal.hide();
+        $scope.taskModal_addUser.hide();
     }
 
     /* --OPTION--
