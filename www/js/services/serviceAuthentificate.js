@@ -1,7 +1,7 @@
 ﻿angular.module('Service.Authentificate', ['ngStorage'])
 
 //User is Authentificate?
-.service('AuthService', ['$localStorage', '$http', '$state', '$ionicPopup', function($localStorage, $http, $state, $ionicPopup){
+.service('AuthService', ['$localStorage', '$http', '$state', '$ionicPopup', '$q', function ($localStorage, $http, $state, $ionicPopup, $q) {
 
     //save User in local STorage
     var User = $localStorage.User;
@@ -56,7 +56,6 @@
     	$http(req).then(success,error);
     }
 
-
     this.isLogOut = function () {
     	User = undefined;
     	Token = undefined;
@@ -64,4 +63,5 @@
         $localStorage.User = undefined;
         $http.defaults.headers.common['authorization'] = undefined;
     };
+
 }]);
