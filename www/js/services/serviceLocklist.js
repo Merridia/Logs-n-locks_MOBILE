@@ -51,35 +51,6 @@ angular.module('service.Locklist', [])
 
     // ================================================================
     //Add a new lock
-    this.addnewlock = function (lock_title) {
-
-        req =   {
-            method: 'POST',
-            url: server_url + '/AddLockForUser',
-            headers: {
-                'authorization': $localStorage.Token,
-            },
-            data: { 
-                nameLock: lock_title,  
-            }
-        }
-       
-        // defer = la promesse, ce qui sera mis dans le defer.resolve/.reject va devenir ce que la promesse affichera
-        var defer = $q.defer();
-
-        // connection au serveur pour récupérer les listes des serrures d'un utilisateur
-        var success = function(result){
-            console.log("La porte à était bien créée");
-            return defer.resolve(result);
-        }
-        var error = function(err){
-            console.log("err : "+err);
-            return defer.reject(err);
-        }
-
-        $http(req).then(success,error);
-        return defer.promise;
-    };
 
     // ================================================================
     //Add a User for a lock
