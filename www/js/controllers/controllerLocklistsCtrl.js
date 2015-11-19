@@ -31,7 +31,7 @@ angular.module('controller.LocklistsCtrl', [])
                 $scope.$apply();
                 break;
 
-            case 'deleted':
+            case 'removedFrom':
                 console.log(msg);
                 $scope.locklists.splice($scope.locklists.indexOf(msg.data.lock));
                 LocklistsServ.sendList($scope.locklists);
@@ -64,7 +64,13 @@ angular.module('controller.LocklistsCtrl', [])
 
     // Called when the form is submitted
     $scope.createLockList = function (lock) {
-        LocklistsServ.addnewlock(lock.title);
+        io.socket.post('/AddLockForUser', { token: $localStorage.Token, nameLock: lock.title }, function(data, jwres) {
+            console.log(data);
+            console.log(jwres)
+
+            $scope.locklists.push(data);
+            LocklistsServ.sendList($scope.locklists);
+        })
         $scope.taskModal.hide();
         lock.title = "";
     }
