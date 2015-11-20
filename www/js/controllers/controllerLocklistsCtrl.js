@@ -1,16 +1,17 @@
 angular.module('controller.LocklistsCtrl', [])
 
-.controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
+.controller('LocklistsCtrl', ['$scope', '$ionicModal', '$ionicPopup', '$localStorage', 'LocklistsServ', function ($scope, $ionicModal, $ionicPopup, $localStorage, LocklistsServ) {
+    $scope.locklists = [];
 
-    io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function(data, jwres) {
+    io.socket.post('/ListLocksForUser', { token: $localStorage.Token }, function (data, jwres) {
         //console.log(data);
         //console.log(jwres);
         $scope.locklists = data;
         LocklistsServ.sendList(data);
     })
-    io.socket.on('lock',function(msg){
+    io.socket.on('lock', function (msg) {
         console.log(msg);
-        switch(msg.verb) {
+        switch (msg.verb) {
             case 'updated':
                 for (var i = $scope.locklists.length - 1; i >= 0; i--) {
                     if ($scope.locklists[i].id == msg.data.lock.id) {
@@ -62,6 +63,7 @@ angular.module('controller.LocklistsCtrl', [])
     $scope.createLockList = function (lock) {
         io.socket.post('/AddLockForUser', { token: $localStorage.Token, nameLock: lock.title }, function(data, jwres) {
             $scope.locklists.push(data);
+            console.log(data);
             LocklistsServ.sendList($scope.locklists);
         })
         $scope.ModalLockList.hide();
