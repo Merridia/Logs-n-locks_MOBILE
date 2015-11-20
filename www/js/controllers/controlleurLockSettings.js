@@ -2,7 +2,7 @@
 
 .controller('LockSettingsCtrl', ['$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
 
-    var server_url = 'http://10.33.1.46:1337';
+    var server_url = 'http://10.33.0.16:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
     //console.log($scope.lock)
     $scope.Admin = false;
@@ -88,7 +88,9 @@
     //controlleur to rename a lock
     $scope.rename = function (nameLock) {
         $scope.taskModal_rename.hide();
-        LocklistsServ.rename(nameLock, $stateParams.lockid);
+        if( nameLock == undefined) {
+            LocklistsServ.rename(nameLock, $stateParams.lockid);
+        }
         // Called the model when the form is submitted
     };
     // Open our new task modal

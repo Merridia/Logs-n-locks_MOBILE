@@ -2,7 +2,7 @@
 
 .controller('UserCtrl', ['$scope', '$ionicModal', '$state', '$http', '$ionicPopup' ,'$localStorage', 'AuthService', function ($scope, $ionicModal, $state,$http,$ionicPopup, $localStorage, AuthService) {
 
-    var server_url = 'http://10.33.1.46:1337';
+    var server_url = 'http://10.33.0.16:1337';
 
     var User = $localStorage.User;
     var ModifMdp = false;

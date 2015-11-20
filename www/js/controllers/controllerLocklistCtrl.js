@@ -31,6 +31,20 @@ angular.module('controller.LocklistCtrl', [])
                     $scope.$apply();
                 }
                 break;
+
+            case 'addedTo':
+                if(msg.id == $scope.lock.id) {
+                    getLogs();
+                    $scope.$apply();
+                }
+                break;
+
+            case 'removedFrom':
+                if(msg.id == $scope.lock.id) {
+                    getLogs();
+                    $scope.$apply();
+                }
+                break;
         }
     })
   
