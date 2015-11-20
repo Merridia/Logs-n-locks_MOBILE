@@ -1,6 +1,6 @@
 angular.module('controller.LocklistCtrl', [])
 
-.controller('LocklistCtrl',['$scope', '$stateParams', 'LocklistsServ', '$state','AuthService', function ($scope, $stateParams,LocklistsServ, $state, AuthService) {
+.controller('LocklistCtrl', ['$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
 
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
