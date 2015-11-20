@@ -1,7 +1,10 @@
 ﻿<ion-view view-title="{{User.firstname}} {{User.lastname}}">
     <ion-content>
         <div class="list" show-reorder="data.showReorder">
-            <div class="item item-divider item-calm"> User information</div>
+            <div class="item item-divider item-calm item-button-right">User information
+                <span class="button button-clear button-light ion-edit" ng-click="showEditProfil()">  Edit</span>
+            </div>
+
             <a class="item item-stacked-label">
                 <span class="input-label">User Firstname</span>
                 <span class="label">{{User.firstname}}</span>

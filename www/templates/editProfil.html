@@ -1,0 +1,24 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Edit Profil</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeEditProfil()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="createNewAccount(Accountdata)" ng-controller="CreateNewAccountCtrl">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="First Name" ng-model="ProfilData.Firstname">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Last Name" ng-model="ProfilData.Lastname">
+                </label>
+                <label class="item item-input">
+                    <input type="email" placeholder="Email" ng-model="ProfilData.Email">
+                </label>
+            </div>
+            <button class="button button-block button-positive ion-icon-right" type="submit">Update  <i class="icon ion-email"></i></button>
+          </form>
+       </ion-content>
+</ion-modal-view>

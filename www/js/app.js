@@ -103,7 +103,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         authentificate: false
     })
     
-    //modifie our profil
+    //Afficher profil
     .state('app.account', {
         url: '/account',
         views: {
@@ -113,7 +113,20 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
             },
         },
         authentificate: true
+    })
+
+    //Afficher profil
+    .state('app.editProfil', {
+        url: '/editProfil',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/editProfil.html',
+                controller: 'UserCtrl',
+            },
+        },
+        authentificate: true
     });
+
 
 // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/login')
