@@ -2,7 +2,7 @@
 
 .controller('CreateNewAccountCtrl', ['$scope', '$ionicPopup', '$http', '$ionicModal', 'AuthService', '$q', function ($scope, $ionicPopup, $http, $ionicModal, AuthService, $q) {
 
-    var server_url = 'http://10.33.1.46:1337'; // Nico 'http://10.33.0.16:1337'; Jo :'http://10.33.1.46:1337'
+    var server_url = 'http://10.33.0.16:1337'; // Nico 'http://10.33.0.16:1337'; Jo :'http://10.33.1.46:1337'
 
     // ================================================================
     // create New Account
