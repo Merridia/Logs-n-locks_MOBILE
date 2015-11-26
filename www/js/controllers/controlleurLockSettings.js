@@ -2,7 +2,7 @@
 
 .controller('LockSettingsCtrl', ['$state', '$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($state, $scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
 
-    var server_url = 'http://10.33.0.16:1337';
+    var server_url = 'http://10.33.1.46:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
     //console.log($scope.lock)
     $scope.Admin = false;
@@ -128,7 +128,12 @@
 
     //controlleur to add a user to a lock
     $scope.addUsertoLock = function (email) {
-        LocklistsServ.addUsertoLock(email, $stateParams.lockid);
+        LocklistsServ.addUsertoLock(email, $stateParams.lockid).then(success, err);
+
+        var success = function () {
+            $scope.userList.push(email);
+
+        }
         // Called the model when the form is submitted
         $scope.taskModal_addUser.hide();
     };

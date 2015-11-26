@@ -7,7 +7,8 @@
     var User = $localStorage.User;
     var Token = $localStorage.Token;
     //Send User to Serveur et Get User from serveur
-    var server_url = 'http://10.33.0.16:1337'; // 'http://10.33.0.16:1337'; 
+
+    var server_url = 'http://10.33.1.46:1337'; // 'http://10.33.1.46:1337'; 
 
     this.isLoggedIn = function() {
         if (User == undefined) {

@@ -23,9 +23,11 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
 
     // Redirection de l'utilisateur suivant s'il est loggé ou non 
     $rootScope.$on("$stateChangeStart", function (event, toState, ToParams, fromState, fromParams) {
-
-        if (toState.authentificate) {
+        console.log('enter');
+        if (toState.authentificate === true) {
+            console.log(AuthService.isLoggedIn())
             if (!AuthService.isLoggedIn()) {
+                event.preventDefault();
                 $state.go('app.login');
             }
         }
@@ -55,7 +57,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         authentificate: false
     })
 
-        //npm install -- save ngstorage
+        //list of all locks
       .state('app.locklists', {
           url: '/lockslists',
           views: {
@@ -115,7 +117,7 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         authentificate: true
     })
 
-    //Afficher profil
+    //Edit profil
     .state('app.editProfil', {
         url: '/editProfil',
         views: {
@@ -129,5 +131,5 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
 
 
 // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/login')
-  });
+    $urlRouterProvider.otherwise('/app/lockslists')
+});
