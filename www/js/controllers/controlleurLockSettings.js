@@ -114,7 +114,12 @@
 
     //controlleur to add a user to a lock
     $scope.addUsertoLock = function (email) {
-        LocklistsServ.addUsertoLock(email, $stateParams.lockid);
+        LocklistsServ.addUsertoLock(email, $stateParams.lockid).then(success, err);
+
+        var success = function () {
+            $scope.userList.push(email);
+
+        }
         // Called the model when the form is submitted
         $scope.taskModal_addUser.hide();
     };
