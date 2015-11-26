@@ -1,6 +1,6 @@
 ﻿angular.module('controller.LockSettingsCtrl', [])
 
-.controller('LockSettingsCtrl', ['$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
+.controller('LockSettingsCtrl', ['$state', '$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($state, $scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
 
     var server_url = 'http://10.33.0.16:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
@@ -69,6 +69,12 @@
                     getUserList($stateParams.lockid);
                 }
                 $scope.$apply();
+                break;
+
+            case 'destroyed':
+                if ($scope.lock.id == msg.id) {
+                    $state.go('app.locklists');
+                }
                 break;
         }
     })
