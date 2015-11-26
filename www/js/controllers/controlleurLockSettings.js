@@ -1,6 +1,6 @@
 ﻿angular.module('controller.LockSettingsCtrl', [])
 
-.controller('LockSettingsCtrl', ['$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
+.controller('LockSettingsCtrl', ['$state', '$scope', '$stateParams', '$ionicModal','$localStorage', '$http','LocklistsServ', 'lockListSettingsServ', function ($state, $scope, $stateParams, $ionicModal,$localStorage, $http, LocklistsServ, lockListSettingsServ) {
 
     var server_url = 'http://10.33.1.46:1337';
     $scope.lock = LocklistsServ.getlockbyID($stateParams.lockid);
@@ -70,6 +70,12 @@
                 }
                 $scope.$apply();
                 break;
+
+            case 'destroyed':
+                if ($scope.lock.id == msg.id) {
+                    $state.go('app.locklists');
+                }
+                break;
         }
     })
 
@@ -126,6 +132,12 @@
         // Called the model when the form is submitted
         $scope.taskModal_addUser.hide();
     };
+
+    $scope.removeUsertoLock = function(idUser) {
+        LocklistsServ.removeUserOnLock(idUser, $stateParams.lockid);
+        console.log("remove user : "+ idUser);
+    }
+
     // Open our new task modal
     $scope.newUserToLock = function () {
         $scope.taskModal_addUser.show();

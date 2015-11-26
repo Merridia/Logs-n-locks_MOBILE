@@ -1,6 +1,6 @@
 angular.module('controller.LocklistCtrl', [])
 
-.controller('LocklistCtrl', ['$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
+.controller('LocklistCtrl', ['$state', '$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($state, $scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
 
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
@@ -43,6 +43,12 @@ angular.module('controller.LocklistCtrl', [])
                 if(msg.id == $scope.lock.id) {
                     getLogs();
                     $scope.$apply();
+                }
+                break;
+
+            case 'destroyed':
+                if(msg.id == $scope.lock.id) {
+                    $state.go('app.locklists');
                 }
                 break;
         }

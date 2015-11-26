@@ -9,6 +9,7 @@ angular.module('controller.LocklistsCtrl', [])
         $scope.locklists = data;
         LocklistsServ.sendList(data);
     })
+
     io.socket.on('lock', function (msg) {
         console.log(msg);
         switch (msg.verb) {
@@ -29,10 +30,24 @@ angular.module('controller.LocklistsCtrl', [])
                 break;
 
             case 'removedFrom':
-                if ($localStorage.User.id == msg.removedId) {
-                    $scope.locklists.splice($scope.locklists.indexOf(LocklistsServ.getlockbyID(msg.id)), 1);
-                    LocklistsServ.sendList($scope.locklists);
-                }
+                if ($localStorage.User.id == msg.removedid) {
+                    for (var i = $scope.locklists.length - 1; i >= 0; i--) {
+                        if ($scope.locklists[i].id == msg.id) {
+                            $scope.locklists.splice(i, 1);
+                        }
+                    };
+                };
+                LocklistsServ.sendList($scope.locklists);
+                $scope.$apply();
+                break;
+
+            case 'destroyed':
+                for (var i = $scope.locklists.length - 1; i >= 0; i--) {
+                    if ($scope.locklists[i].id == msg.id) {
+                        $scope.locklists.splice(i, 1);
+                    }
+                };
+                LocklistsServ.sendList($scope.locklists);
                 $scope.$apply();
                 break;
 
