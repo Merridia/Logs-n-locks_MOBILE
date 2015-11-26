@@ -80,8 +80,8 @@
 
         // ================================================================
         // Edit profil
-         $scope.EditProfil = function (ProfilData) {
-             console.log(ProfilData)
+         $scope.EditProfil = function (User) {
+             console.log(User)
              req = {
                  method: 'POST',
                  url: server_url + '/EditProfil',
@@ -89,18 +89,17 @@
                      'authorization': $localStorage.Token,
                  },
                  data: {
-                     firstname: ProfilData.Firstname,
-                     lastname: ProfilData.Lastname,
-                     email: ProfilData.Email,
+                     firstname: User.firstname,
+                     lastname: User.lastname,
+                     email: User.email,
                  }
              }
              var success = function (result) {
                  $scope.EditProfil = result.data;
                  console.log(result);
-
                  $ionicPopup.alert({
                      title: 'Edition Profil',
-                     template: result.data,
+                     template: 'Edition ' + result.data,
                  });
              }
              var error = function (err) {
