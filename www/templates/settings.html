@@ -21,7 +21,7 @@
         <!-- Add a user to the lock -->
         <ion-item class="item item-divider item-calm">Other user with access to this lock</ion-item>
         <button class="button button-left button-dark ion-person-add" ng-hide="!Admin" ng-click="newUserToLock()">Add a user</button>
-        <button class="button button-right button-dark" ng-click="data.showReorder = !data.showReorder;">Delete user</button>
+        <button class="button button-right button-dark" ng-hide="!Admin" ng-click="data.showReorder = !data.showReorder;">Delete user</button>
         <ion-list show-reorder="data.showReorder">
             <div class="col col-left">
             </div>

@@ -30,7 +30,7 @@ angular.module('controller.LocklistsCtrl', [])
                 break;
 
             case 'removedFrom':
-                if ($localStorage.User.id == msg.removedid) {
+                if ($localStorage.User.id == msg.removedId) {
                     for (var i = $scope.locklists.length - 1; i >= 0; i--) {
                         if ($scope.locklists[i].id == msg.id) {
                             $scope.locklists.splice(i, 1);

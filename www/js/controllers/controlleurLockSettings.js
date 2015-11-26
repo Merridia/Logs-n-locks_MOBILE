@@ -59,7 +59,12 @@
 
             case 'removedFrom':
                 if ($scope.lock.id == msg.id) {
-                    getUserList($stateParams.lockid);
+                    if ($localStorage.User.id == msg.removedId) {
+                        $state.go('app.locklists');
+                    }
+                    else {
+                        getUserList($stateParams.lockid);
+                    }
                 }
                 $scope.$apply();
                 break;

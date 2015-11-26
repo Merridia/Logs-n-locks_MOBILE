@@ -1,6 +1,6 @@
 angular.module('controller.LocklistCtrl', [])
 
-.controller('LocklistCtrl', ['$state', '$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($state, $scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
+.controller('LocklistCtrl', ['$localStorage', '$state', '$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($localStorage, $state, $scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
 
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
 
@@ -41,8 +41,13 @@ angular.module('controller.LocklistCtrl', [])
 
             case 'removedFrom':
                 if(msg.id == $scope.lock.id) {
-                    getLogs();
-                    $scope.$apply();
+                    if ($localStorage.User.id == msg.removedId) {
+                        $state.go('app.locklists');
+                    }
+                    else {
+                        getLogs();
+                        $scope.$apply();
+                    }
                 }
                 break;
 
