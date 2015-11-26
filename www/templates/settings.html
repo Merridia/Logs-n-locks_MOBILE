@@ -19,10 +19,12 @@
         
 
         <!-- Add a user to the lock -->
-        <div class="item item-divider item-calm">Other user with access to this lock</div>
-        <ion-list>
-            <div class="col col-right"><button class="button button-left button-dark ion-person-add " ng-hide="!Admin" ng-click="newUserToLock()">
-                Add a user</button></div>
+        <ion-item class="item item-divider item-calm">Other user with access to this lock</ion-item>
+        <button class="button button-left button-dark ion-person-add" ng-hide="!Admin" ng-click="newUserToLock()">Add a user</button>
+        <button class="button button-right button-dark" ng-click="data.showReorder = !data.showReorder;">Delete user</button>
+        <ion-list show-reorder="data.showReorder">
+            <div class="col col-left">
+            </div>
             <div class="row">
                 <div class="col col-stable col-center">Firstname</div>
                 <div class="col col-stable col-center">Lastname</div>
@@ -33,6 +35,7 @@
                     <div class="col">{{user.firstname}}</div>
                     <div class="col">{{user.lastname}}</div>
                     <div class="col">{{user.email}}</div>
+                    <ion-reorder-button class="ion-minus-round" ng-click="removeUsertoLock({{user.id}})"></ion-reorder-button>
                 </div>
             </ion-item>
         </ion-list>

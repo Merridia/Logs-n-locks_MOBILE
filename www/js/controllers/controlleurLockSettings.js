@@ -121,6 +121,12 @@
         // Called the model when the form is submitted
         $scope.taskModal_addUser.hide();
     };
+
+    $scope.removeUsertoLock = function(idUser) {
+        LocklistsServ.removeUserOnLock(idUser, $stateParams.lockid);
+        console.log("remove user : "+ idUser);
+    }
+
     // Open our new task modal
     $scope.newUserToLock = function () {
         $scope.taskModal_addUser.show();

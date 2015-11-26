@@ -55,7 +55,7 @@ angular.module('service.Locklist', [])
     // ================================================================
     //Add a User for a lock
     this.addUsertoLock = function (email, idlock) {
-
+        
         req = {
             method: 'POST',
             url: server_url + '/AddUserForLock',
@@ -83,6 +83,13 @@ angular.module('service.Locklist', [])
 
         $http(req).then(success, error);
         return defer.promise;
+    };
+
+    // ================================================================
+    //Add a User for a lock
+    this.removeUserOnLock = function (iduser, idlock) {
+        console.log("test");
+        io.socket.post('/DeleteUserForLock', { token: $localStorage.Token, idUser: iduser, idLock: idlock })
     };
 
     // ================================================================
