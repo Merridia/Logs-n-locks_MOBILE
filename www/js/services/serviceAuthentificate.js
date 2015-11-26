@@ -10,6 +10,8 @@
 
     var server_url = 'http://10.33.1.46:1337'; // 'http://10.33.1.46:1337'; 
 
+    // ================================================================
+    // Check if the User is Loging
     this.isLoggedIn = function() {
         if (User == undefined) {
             return false
@@ -18,7 +20,8 @@
             return true
         };
     }
-
+    // ================================================================
+    // Get the user
     this.getUser = function()
     {
     	return User;
@@ -56,7 +59,8 @@
 
     	$http(req).then(success,error);
     }
-
+    // ================================================================
+    // Loggout the user
     this.isLogOut = function () {
     	User = undefined;
     	Token = undefined;

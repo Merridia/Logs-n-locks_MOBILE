@@ -33,7 +33,8 @@ angular.module('starter', ['ionic', 'Service.Authentificate','ngStorage', 'contr
         }
     });
 })
-
+     // ================================================================
+    //-------------------- Routes----------------------------------------
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 

@@ -3,7 +3,8 @@ angular.module('controller.LocklistCtrl', [])
 .controller('LocklistCtrl', ['$localStorage', '$state', '$scope', '$stateParams', '$ionicPopup', 'LocklistsServ', '$state', 'AuthService', function ($localStorage, $state, $scope, $stateParams, $ionicPopup, LocklistsServ, $state, AuthService) {
 
     $scope.lock = LocklistsServ.getlockbyID($stateParams.locklistId);
-
+    // ================================================================
+    // get User
     var getUserList = function() {
         var success = function (result) {
         	$scope.userList = result;
@@ -59,6 +60,8 @@ angular.module('controller.LocklistCtrl', [])
         }
     })
   
+    // ================================================================
+    // Put the status of the toggle in the list settings
     var toggleStatus = function() {
         if ($scope.lock.isOpen) {
             $scope.status = "The door is unlock";
@@ -68,6 +71,9 @@ angular.module('controller.LocklistCtrl', [])
         }
     }
     toggleStatus();
+
+    // ================================================================
+    // Get log for the choosen lock
 
     var getLogs = function() {
         var success = function (result) {
@@ -91,15 +97,21 @@ angular.module('controller.LocklistCtrl', [])
     }
     getLogs();
 
+    // ================================================================
+    // Check if the door is open or not
     $scope.isOpenOrNot = function() {
         return $scope.lock.isOpen;
     }
 
+    // ================================================================
+    // Change the lock status the lock
     $scope.open = function () {
         $scope.lock.isOpen = !$scope.lock.isOpen;
         LocklistsServ.toggleLock($stateParams.locklistId, $scope.lock.isOpen);
     };
 
+    // ================================================================
+    // Show settings
     $scope.setting = function () {
         $state.go('app.LockSettings', {
             lockid : $scope.lock.id,

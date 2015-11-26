@@ -44,6 +44,7 @@
                     alertPopup.then(function (res) {
                         $state.go('app.login'),
                         console.log(msg.data);
+                        AuthService.isLogOut();
                     });
                 };
             });

@@ -5,6 +5,7 @@
     </div>
   </ion-header-bar>
   <ion-content>
+      <!-- ---------------------- Login ----------------------------- -->
     <form ng-submit="login(loginData)">
       <div class="list">
         <label class="item item-input item-stacked-label">
@@ -16,8 +17,8 @@
           <input type="password" ng-model="loginData.password">
         </label>
       </div>
+        <!-- ---------------------- modif Password ----------------------------- -->
         <button class="button button-block button-positive" type="submit">Log in</button>
-        <button class="button button-block button-assertive">Password Lost?</button>
     </form>
   </ion-content>
 </ion-view>
