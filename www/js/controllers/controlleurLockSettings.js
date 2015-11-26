@@ -88,7 +88,10 @@
     //controlleur to rename a lock
     $scope.rename = function (nameLock) {
         $scope.taskModal_rename.hide();
-        LocklistsServ.rename(nameLock, $stateParams.lockid);
+        console.log(nameLock);
+        if( nameLock != undefined) {
+            LocklistsServ.rename(nameLock, $stateParams.lockid);
+        }
         // Called the model when the form is submitted
     };
     // Open our new task modal

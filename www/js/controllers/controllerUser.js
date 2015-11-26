@@ -108,8 +108,8 @@
              $http(req).then(success, error);
          };
 
-        // ================================================================
-        /*-- Edit profil modal*/
+    // ================================================================
+    /*-- Edit profil modal*/
     // Create and load the Modal
          $ionicModal.fromTemplateUrl('templates/editProfil.html', {
              scope: $scope,
@@ -134,6 +134,5 @@
 	    $scope.Modal_Editprofil.hide();
 	}
     // ================================================================
-
 
 }]);
